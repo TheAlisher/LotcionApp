@@ -6,6 +6,24 @@
     app:startDestination="@id/navigation_home">
 
     <fragment
+        android:id="@+id/signInFragment"
+        android:name="com.alis.lotcion.ui.authentication.signin.SignInFragment"
+        android:label="fragment_sign_in"
+        tools:layout="@layout/fragment_sign_in" />
+
+    <fragment
+        android:id="@+id/signUpFragment"
+        android:name="com.alis.lotcion.ui.authentication.signup.SignUpFragment"
+        android:label="fragment_sign_up"
+        tools:layout="@layout/fragment_sign_up" />
+
+    <fragment
+        android:id="@+id/verifyCodeFragment"
+        android:name="com.alis.lotcion.ui.authentication.verifycode.VerifyCodeFragment"
+        android:label="fragment_verify_code"
+        tools:layout="@layout/fragment_verify_code" />
+
+    <fragment
         android:id="@+id/navigation_home"
         android:name="com.alis.lotcion.ui.fragments.home.HomeFragment"
         android:label="@string/navigation_home"
@@ -22,6 +40,24 @@
         android:name="com.alis.lotcion.ui.fragments.profile.ProfileFragment"
         android:label="@string/navigation_profile"
         tools:layout="@layout/fragment_profile" />
+
+    <fragment
+        android:id="@+id/editProfileFragment"
+        android:name="com.alis.lotcion.ui.fragments.profile.editprofile.EditProfileFragment"
+        android:label="fragment_edit_profile"
+        tools:layout="@layout/fragment_edit_profile" />
+
+    <fragment
+        android:id="@+id/settingsFragment"
+        android:name="com.alis.lotcion.ui.settings.SettingsFragment"
+        android:label="fragment_settings"
+        tools:layout="@layout/fragment_settings" />
+
+    <fragment
+        android:id="@+id/lotFragment"
+        android:name="com.alis.lotcion.ui.lot.LotFragment"
+        android:label="fragment_lot"
+        tools:layout="@layout/fragment_lot" />
 
 
 </navigation>
