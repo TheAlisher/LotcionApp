@@ -64,5 +64,5 @@ dependencies {
     // Firebase Android BoM
     implementation platform('com.google.firebase:firebase-bom:25.12.0')
     // Firebase Auth
-    implementation 'com.google.firebase:firebase-auth'
+    implementation 'com.google.firebase:firebase-auth-ktx'
 }
