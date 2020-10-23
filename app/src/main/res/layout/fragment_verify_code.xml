@@ -1,16 +1,36 @@
 <?xml version="1.0" encoding="utf-8"?>
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:gravity="center"
+    android:orientation="vertical"
     tools:context=".ui.authentication.verifycode.VerifyCodeFragment">
 
-    <TextView
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/inputLayout_verify_code"
+        style="@style/AuthenticationInputLayout"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:gravity="center"
-        android:text="VerifyCodeFragment"
-        android:textSize="30sp" />
+        android:layout_height="wrap_content">
+
+        <EditText
+            android:id="@+id/edit_verify_code"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:autofillHints="VerifyCode"
+            android:hint="@string/hint_enter_code"
+            android:inputType="phone" />
 
 
-</FrameLayout>
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <Button
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="20dp"
+        android:text="@string/button_verify_code"
+        android:textAllCaps="false"
+        android:textSize="20sp" />
+
+
+</LinearLayout>

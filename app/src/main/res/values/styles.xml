@@ -1,14 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
 
-    <style name="SignInInputLayout" parent="Widget.MaterialComponents.TextInputLayout.FilledBox">
+    <style name="AuthenticationInputLayout" parent="Widget.MaterialComponents.TextInputLayout.FilledBox">
         <item name="android:layout_margin">10dp</item>
         <item name="boxStrokeWidth">0dp</item>
         <item name="hintEnabled">false</item>
     </style>
 
-    <style name="SignUpInputLayout" parent="Widget.MaterialComponents.TextInputLayout.FilledBox">
-
-    </style>
 
 </resources>
