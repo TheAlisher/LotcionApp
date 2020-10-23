@@ -50,5 +50,14 @@
         android:textAllCaps="false"
         android:textSize="20sp" />
 
+    <Button
+        android:id="@+id/button_sign_in_don_t_have_account"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="20dp"
+        android:text="@string/button_don_t_have_account"
+        android:textAllCaps="false"
+        android:textSize="20sp" />
+
 
 </LinearLayout>

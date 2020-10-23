@@ -6,20 +6,26 @@
     <string name="navigation_add_lot">Добавить лот</string>
     <string name="navigation_profile">Профиль</string>
 
-    <!--SignInFragment-->
-    <string name="button_sign_in">Войти</string>
-
-    <!--SignUpFragment-->
-    <string name="button_sign_up">Зарегистрироваться</string>
-
-    <!--VerifyCodeFragment-->
-    <string name="button_verify_code">Подтвердить код</string>
-
     <!--Hint-->
     <string name="hint_phone_number">Номер телефона</string>
     <string name="hint_password">Пароль</string>
     <string name="hint_name">Имя</string>
     <string name="hint_enter_code">Введите код…</string>
+
+    <!--Toast-->
+    <string name="toast_you_are_successfully_signed">Вы успешно вошли</string>
+    <string name="toast_failed_to_sign_in_try_again">Не удалось войти попробуйте ещё раз</string>
+
+    <!--SignInFragment-->
+    <string name="button_sign_in">Войти</string>
+    <string name="button_don_t_have_account">Нет аккаунта? Зарегистриуруйтесь</string>
+
+    <!--SignUpFragment-->
+    <string name="button_sign_up">Зарегистрироваться</string>
+    <string name="button_already_have_account">Уже есть аккаунт? Войти</string>
+
+    <!--VerifyCodeFragment-->
+    <string name="button_verify_code">Подтвердить код</string>
 
 
 </resources>
