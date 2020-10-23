@@ -1,0 +1,40 @@
+{
+  "project_info": {
+    "project_number": "870513432414",
+    "firebase_url": "https://lotcionapp-666.firebaseio.com",
+    "project_id": "lotcionapp-666",
+    "storage_bucket": "lotcionapp-666.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:870513432414:android:929e295bb6533814cc61cf",
+        "android_client_info": {
+          "package_name": "com.alis.lotcion"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "870513432414-bbc4n1a5h4cnkc6gr374i22sh7sg3o91.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCJGsKXGFjJnI6sgi4X8FB3NzJVxl_A5nQ"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "870513432414-bbc4n1a5h4cnkc6gr374i22sh7sg3o91.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
