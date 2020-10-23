@@ -4,7 +4,9 @@ data class Lot(
     var image: Int,
     var name: String,
     var description: String,
-    var price: Int,
+    var startingPrice: Int,
+    var finalPrice: Int,
     var timeLeft: String,
-    var isLiked: Boolean = false,
+    var bidders: MutableList<Bidder>,
+    var isLiked: Boolean = false
 )
