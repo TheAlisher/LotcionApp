@@ -39,6 +39,7 @@ class VerifyCodeFragment : Fragment() {
         super.onViewCreated(view, savedInstanceState)
 
         setupListeners()
+        auth.setLanguageCode("ru")
         sendVerificationCode()
     }
 
