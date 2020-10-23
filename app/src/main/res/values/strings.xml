@@ -1,3 +1,10 @@
 <resources>
     <string name="app_name">Lotcion</string>
+
+    <!--Menu-->
+    <string name="navigation_home">Главное</string>
+    <string name="navigation_add_lot">Добавить лот</string>
+    <string name="navigation_profile">Профиль</string>
+
+
 </resources>
