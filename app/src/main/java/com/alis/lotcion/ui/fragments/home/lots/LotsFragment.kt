@@ -9,6 +9,7 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import com.alis.lotcion.R
 import com.alis.lotcion.adapters.LotsAdapter
 import com.alis.lotcion.models.Lot
+import com.alis.lotcion.ui.lot.LotFragment
 import kotlinx.android.synthetic.main.fragment_lots.*
 import org.koin.androidx.viewmodel.ext.android.viewModel
 
@@ -47,7 +48,11 @@ class LotsFragment : Fragment() {
     private fun setupListeners() {
         lotsAdapter.setOnItemClickListener(object : LotsAdapter.OnItemClickListener {
             override fun onLotItemClick(item: Lot) {
-                //TODO: open LotFragment
+                LotFragment.start(
+                    requireActivity(),
+                    R.id.action_navigation_home_to_lotFragment,
+                    item
+                )
             }
         })
     }
