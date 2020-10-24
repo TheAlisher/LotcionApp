@@ -3,9 +3,6 @@ package com.alis.lotcion.ui.activity
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.View
-import android.view.WindowInsets
-import android.view.WindowInsetsController
-import android.view.WindowManager
 import androidx.navigation.NavController
 import androidx.navigation.fragment.NavHostFragment
 import androidx.navigation.ui.setupWithNavController
@@ -24,6 +21,7 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
         setupNavController()
+        isAuthentication()
     }
 
     private fun setupNavController() {
@@ -59,14 +57,9 @@ class MainActivity : AppCompatActivity() {
         }
     }
 
-    override fun onStart() {
-        super.onStart()
-        if (isAuthentication()) {
+    private fun isAuthentication() {
+        if (FirebaseAuth.getInstance().currentUser == null) {
             navController.navigate(R.id.signInFragment)
         }
-    }
-
-    private fun isAuthentication(): Boolean {
-        return FirebaseAuth.getInstance().currentUser == null
     }
 }
