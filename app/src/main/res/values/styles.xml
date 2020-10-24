@@ -7,5 +7,13 @@
         <item name="hintEnabled">false</item>
     </style>
 
+    <style name="ProfileButton" parent="Widget.MaterialComponents.Button.OutlinedButton">
+        <item name="android:layout_margin">10dp</item>
+        <item name="cornerRadius">100dp</item>
+        <item name="iconGravity">textEnd</item>
+        <item name="iconSize">33dp</item>
+        <item name="iconTint">@color/Black</item>
+    </style>
+
 
 </resources>
