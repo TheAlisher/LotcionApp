@@ -10,6 +10,10 @@ import org.koin.androidx.viewmodel.ext.android.viewModel
 
 class LotsFragment : Fragment() {
 
+    companion object {
+        val ARG_TAB_POSITION: String = "tab_position"
+    }
+
     private val viewModel by viewModel<LotsViewModel>()
 
     override fun onCreateView(

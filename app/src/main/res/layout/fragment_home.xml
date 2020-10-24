@@ -1,16 +1,50 @@
 <?xml version="1.0" encoding="utf-8"?>
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.coordinatorlayout.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/coordinator_home"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".ui.fragments.home.HomeFragment">
 
-    <TextView
+    <com.google.android.material.appbar.AppBarLayout
+        android:id="@+id/appbar_home"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/White">
+
+        <androidx.appcompat.widget.SearchView
+            android:id="@+id/searchView_home"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="20dp"
+            android:layout_marginTop="20dp"
+            android:layout_marginEnd="20dp"
+            android:layout_marginBottom="10dp"
+            android:background="@color/White"
+            android:elevation="10dp"
+            app:defaultQueryHint="@string/hint_search"
+            app:iconifiedByDefault="false"
+            app:layout_scrollFlags="scroll|enterAlways"
+            app:queryBackground="@color/White" />
+
+        <com.google.android.material.tabs.TabLayout
+            android:id="@+id/tabLayout_home"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:tabContentStart="20dp"
+            app:tabIndicatorColor="@null"
+            app:tabInlineLabel="true"
+            app:tabMode="scrollable" />
+
+
+    </com.google.android.material.appbar.AppBarLayout>
+
+    <androidx.viewpager.widget.ViewPager
+        android:id="@+id/pager_home"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:gravity="center"
-        android:text="HomeFragment"
-        android:textSize="30sp" />
+        app:layout_behavior="com.google.android.material.appbar.AppBarLayout$ScrollingViewBehavior" />
 
 
-</FrameLayout>
+</androidx.coordinatorlayout.widget.CoordinatorLayout>

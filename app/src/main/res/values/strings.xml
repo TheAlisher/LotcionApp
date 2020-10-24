@@ -11,6 +11,7 @@
     <string name="hint_password">Пароль</string>
     <string name="hint_name">Имя</string>
     <string name="hint_enter_code">Введите код…</string>
+    <string name="hint_search">Поиск…</string>
 
     <!--Toast-->
     <string name="toast_you_are_successfully_signed">Вы успешно вошли</string>
