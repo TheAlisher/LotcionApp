@@ -5,8 +5,10 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.alis.lotcion.R
+import com.alis.lotcion.extensions.loadImage
 import com.alis.lotcion.interfaces.OnItemClickListener
 import com.alis.lotcion.models.Lot
+import kotlinx.android.synthetic.main.item_lots.view.*
 
 class LotsAdapter : RecyclerView.Adapter<LotsAdapter.LotsViewHolder>() {
 
@@ -38,7 +40,11 @@ class LotsAdapter : RecyclerView.Adapter<LotsAdapter.LotsViewHolder>() {
     class LotsViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
 
         fun onBind(lot: Lot) {
-
+            itemView.image_item_lot.loadImage(
+                lot.image.toString(),
+            )
+            itemView.text_item_lot_name.text = lot.name
+            itemView.text_item_lot_description.text = lot.description
         }
     }
 }
