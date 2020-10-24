@@ -6,7 +6,6 @@ import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.alis.lotcion.R
 import com.alis.lotcion.extensions.loadImage
-import com.alis.lotcion.interfaces.OnItemClickListener
 import com.alis.lotcion.models.Lot
 import kotlinx.android.synthetic.main.item_lots.view.*
 
@@ -23,9 +22,18 @@ class LotsAdapter : RecyclerView.Adapter<LotsAdapter.LotsViewHolder>() {
 
     override fun onBindViewHolder(holder: LotsViewHolder, position: Int) {
         holder.onBind(list[position])
+
+        holder.itemView.setOnClickListener {
+            listener.onLotItemClick(list[position])
+        }
     }
 
     override fun getItemCount(): Int = list.size
+
+    fun add(lot: Lot) {
+        this.list.add(lot)
+        notifyDataSetChanged()
+    }
 
     fun addAll(list: MutableList<Lot>) {
         this.list.addAll(list)
@@ -46,5 +54,13 @@ class LotsAdapter : RecyclerView.Adapter<LotsAdapter.LotsViewHolder>() {
             itemView.text_item_lot_name.text = lot.name
             itemView.text_item_lot_description.text = lot.description
         }
+    }
+
+    interface OnItemClickListener {
+        fun onLotItemClick(item: Lot)
+    }
+
+    fun setOnItemClickListener(onItemClickListener: OnItemClickListener) {
+        this.listener = onItemClickListener
     }
 }
