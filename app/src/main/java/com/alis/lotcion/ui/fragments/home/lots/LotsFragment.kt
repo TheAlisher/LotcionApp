@@ -20,7 +20,7 @@ class LotsFragment : Fragment() {
 
     private val viewModel by viewModel<LotsViewModel>()
 
-    private lateinit var lotsAdapter: LotsAdapter
+    private val lotsAdapter = LotsAdapter()
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -38,7 +38,6 @@ class LotsFragment : Fragment() {
     }
 
     private fun createLotsRecycler() {
-        lotsAdapter = LotsAdapter()
         recycler_lots.apply {
             layoutManager = LinearLayoutManager(requireContext())
             adapter = lotsAdapter
@@ -48,7 +47,7 @@ class LotsFragment : Fragment() {
     private fun setupListeners() {
         lotsAdapter.setOnItemClickListener(object : LotsAdapter.OnItemClickListener {
             override fun onLotItemClick(item: Lot) {
-
+                //TODO: open LotFragment
             }
         })
     }
