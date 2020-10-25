@@ -28,5 +28,8 @@
     <!--VerifyCodeFragment-->
     <string name="button_verify_code">Подтвердить код</string>
 
+    <!--SettingsFragment-->
+    <string name="button_sign_out">Выйти</string>
+
 
 </resources>
