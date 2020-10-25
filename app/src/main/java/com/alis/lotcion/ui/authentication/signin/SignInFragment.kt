@@ -29,6 +29,17 @@ class SignInFragment : Fragment() {
     private val RC_SIGN_IN = 33
     private lateinit var auth: FirebaseAuth
 
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
+        overrideOnBackPressed()
+    }
+
+    private fun overrideOnBackPressed() {
+        requireActivity().onBackPressedDispatcher.addCallback(this) {
+            requireActivity().finish()
+        }
+    }
+
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
