@@ -9,6 +9,7 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import com.alis.lotcion.R
 import com.alis.lotcion.adapters.LotsAdapter
 import com.alis.lotcion.models.Lot
+import com.alis.lotcion.models.getMockData
 import com.alis.lotcion.ui.lot.LotFragment
 import kotlinx.android.synthetic.main.fragment_lots.*
 import org.koin.androidx.viewmodel.ext.android.viewModel
@@ -59,134 +60,10 @@ class LotsFragment : Fragment() {
 
     private fun fetchLots() {
         lotsAdapter.clear()
-        var lot: Lot? = null
-        when (requireArguments().getInt(ARG_TAB_POSITION)) {
-            0 -> {
-                lot = Lot(
-                    R.drawable.ic_launcher_background,
-                    "ЛОТ",
-                    "ОПИСАНИЕ ЛОТА",
-                    1200,
-                    3400,
-                    "21ч : 34м : 3с",
-                    null,
-                    false,
-                )
-            }
-            1 -> {
-                lot = Lot(
-                    R.drawable.ic_launcher_background,
-                    "ЛОТ",
-                    "ОПИСАНИЕ ЛОТА",
-                    1200,
-                    3400,
-                    "21ч : 34м : 3с",
-                    null,
-                    false,
-                )
-            }
-            2 -> {
-                lot = Lot(
-                    R.drawable.ic_launcher_background,
-                    "ЛОТ",
-                    "ОПИСАНИЕ ЛОТА",
-                    1200,
-                    3400,
-                    "21ч : 34м : 3с",
-                    null,
-                    false,
-                )
-            }
-            3 -> {
-                lot = Lot(
-                    R.drawable.ic_launcher_background,
-                    "ЛОТ",
-                    "ОПИСАНИЕ ЛОТА",
-                    1200,
-                    3400,
-                    "21ч : 34м : 3с",
-                    null,
-                    false,
-                )
-            }
-            4 -> {
-                lot = Lot(
-                    R.drawable.ic_launcher_background,
-                    "ЛОТ",
-                    "ОПИСАНИЕ ЛОТА",
-                    1200,
-                    3400,
-                    "21ч : 34м : 3с",
-                    null,
-                    false,
-                )
-            }
-            5 -> {
-                lot = Lot(
-                    R.drawable.ic_launcher_background,
-                    "ЛОТ",
-                    "ОПИСАНИЕ ЛОТА",
-                    1200,
-                    3400,
-                    "21ч : 34м : 3с",
-                    null,
-                    false,
-                )
-            }
-            6 -> {
-                lot = Lot(
-                    R.drawable.ic_launcher_background,
-                    "ЛОТ",
-                    "ОПИСАНИЕ ЛОТА",
-                    1200,
-                    3400,
-                    "21ч : 34м : 3с",
-                    null,
-                    false,
-                )
-            }
-            7 -> {
-                lot = Lot(
-                    R.drawable.ic_launcher_background,
-                    "ЛОТ",
-                    "ОПИСАНИЕ ЛОТА",
-                    1200,
-                    3400,
-                    "21ч : 34м : 3с",
-                    null,
-                    false,
-                )
-            }
-            8 -> {
-                lot = Lot(
-                    R.drawable.ic_launcher_background,
-                    "ЛОТ",
-                    "ОПИСАНИЕ ЛОТА",
-                    1200,
-                    3400,
-                    "21ч : 34м : 3с",
-                    null,
-                    false,
-                )
-            }
-            9 -> {
-                lot = Lot(
-                    R.drawable.ic_launcher_background,
-                    "ЛОТ",
-                    "ОПИСАНИЕ ЛОТА",
-                    1200,
-                    3400,
-                    "21ч : 34м : 3с",
-                    null,
-                    false,
-                )
-            }
+        val data = getMockData()
+        data.forEach {
+            lotsAdapter.add(it)
         }
-        lotsAdapter.add(lot!!)
-        lotsAdapter.add(lot)
-        lotsAdapter.add(lot)
-        lotsAdapter.add(lot)
-        lotsAdapter.add(lot)
-        lotsAdapter.add(lot)
+        //TODO: viewModel.fetchLots(requireArguments().getInt(ARG_TAB_POSITION))
     }
 }
