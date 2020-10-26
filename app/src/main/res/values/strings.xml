@@ -28,6 +28,9 @@
     <!--VerifyCodeFragment-->
     <string name="button_verify_code">Подтвердить код</string>
 
+    <!--AddLotFragment-->
+    <string name="button_add_lot">Добавить лот</string>
+
     <!--SettingsFragment-->
     <string name="button_sign_out">Выйти</string>
 
