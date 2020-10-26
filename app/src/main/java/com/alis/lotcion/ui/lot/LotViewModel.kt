@@ -1,7 +1,7 @@
 package com.alis.lotcion.ui.lot
 
-import androidx.lifecycle.ViewModel
+import com.alis.lotcion.base.BaseViewModel
 
-class LotViewModel : ViewModel() {
+class LotViewModel : BaseViewModel() {
 
 }

@@ -3,27 +3,23 @@ package com.alis.lotcion.ui.authentication.signin
 import android.content.Intent
 import android.os.Bundle
 import android.util.Log
-import androidx.fragment.app.Fragment
-import android.view.LayoutInflater
-import android.view.View
-import android.view.ViewGroup
 import androidx.activity.addCallback
 import androidx.navigation.fragment.findNavController
 import com.alis.lotcion.R
+import com.alis.lotcion.base.BaseFragment
 import com.alis.lotcion.ui.fragments.home.HomeFragment
 import com.google.android.gms.auth.api.signin.GoogleSignIn
 import com.google.android.gms.auth.api.signin.GoogleSignInClient
 import com.google.android.gms.auth.api.signin.GoogleSignInOptions
 import com.google.android.gms.common.api.ApiException
-import com.google.firebase.auth.AuthCredential
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.GoogleAuthProvider
 import kotlinx.android.synthetic.main.fragment_sign_in.*
-import org.koin.androidx.viewmodel.ext.android.viewModel
+import org.koin.android.ext.android.inject
 
-class SignInFragment : Fragment() {
+class SignInFragment : BaseFragment<SignInViewModel>(R.layout.fragment_sign_in) {
 
-    private val viewModel by viewModel<SignInViewModel>()
+    override val viewModel by inject<SignInViewModel>()
 
     private lateinit var googleSignInClient: GoogleSignInClient
     private val RC_SIGN_IN = 33
@@ -40,22 +36,21 @@ class SignInFragment : Fragment() {
         }
     }
 
-    override fun onCreateView(
-        inflater: LayoutInflater, container: ViewGroup?,
-        savedInstanceState: Bundle?
-    ): View? {
-        return inflater.inflate(R.layout.fragment_sign_in, container, false)
-    }
-
-    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
-        super.onViewCreated(view, savedInstanceState)
+    override fun initialize() {
         auth = FirebaseAuth.getInstance()
-
-        setupListeners()
         configureGoogleSignIn()
     }
 
-    private fun setupListeners() {
+    private fun configureGoogleSignIn() {
+        val gso = GoogleSignInOptions.Builder(GoogleSignInOptions.DEFAULT_SIGN_IN)
+            .requestIdToken(getString(R.string.default_web_client_id))
+            .requestEmail()
+            .build()
+
+        googleSignInClient = GoogleSignIn.getClient(requireContext(), gso)
+    }
+
+    override fun setupListeners() {
         clickSignInWithGoogle()
         clickSignIn()
         clickDonTHaveAccount()
@@ -77,15 +72,6 @@ class SignInFragment : Fragment() {
         button_sign_in_don_t_have_account.setOnClickListener {
             findNavController().navigate(R.id.action_signInFragment_to_signUpFragment)
         }
-    }
-
-    private fun configureGoogleSignIn() {
-        val gso = GoogleSignInOptions.Builder(GoogleSignInOptions.DEFAULT_SIGN_IN)
-            .requestIdToken(getString(R.string.default_web_client_id))
-            .requestEmail()
-            .build()
-
-        googleSignInClient = GoogleSignIn.getClient(requireContext(), gso)
     }
 
     private fun signIn() {
@@ -128,5 +114,9 @@ class SignInFragment : Fragment() {
 
                 }
             }
+    }
+
+    override fun observe() {
+
     }
 }

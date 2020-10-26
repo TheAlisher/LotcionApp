@@ -1,8 +1,8 @@
 package com.alis.lotcion.ui.fragments.home.lots
 
-import androidx.lifecycle.ViewModel
+import com.alis.lotcion.base.BaseViewModel
 
-class LotsViewModel : ViewModel() {
+class LotsViewModel : BaseViewModel() {
 
     fun fetchLots(position: Int) {
 

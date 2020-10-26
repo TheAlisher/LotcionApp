@@ -1,7 +1,7 @@
 package com.alis.lotcion.ui.authentication.verifycode
 
-import androidx.lifecycle.ViewModel
+import com.alis.lotcion.base.BaseViewModel
 
-class VerifyCodeViewModel : ViewModel() {
+class VerifyCodeViewModel : BaseViewModel() {
 
 }

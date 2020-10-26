@@ -1,41 +1,54 @@
 package com.alis.lotcion.ui.fragments.profile
 
-import android.os.Bundle
-import androidx.fragment.app.Fragment
-import android.view.LayoutInflater
-import android.view.View
-import android.view.ViewGroup
 import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.alis.lotcion.R
 import com.alis.lotcion.adapters.LotsAdapter
+import com.alis.lotcion.base.BaseFragment
 import com.alis.lotcion.models.Lot
 import com.alis.lotcion.ui.lot.LotFragment
 import kotlinx.android.synthetic.main.fragment_profile.*
-import org.koin.androidx.viewmodel.ext.android.viewModel
+import org.koin.android.ext.android.inject
 
-class ProfileFragment : Fragment() {
+class ProfileFragment : BaseFragment<ProfileViewModel>(R.layout.fragment_profile) {
 
-    private val viewModel by viewModel<ProfileViewModel>()
+    override val viewModel by inject<ProfileViewModel>()
 
     private val lotsAdapter = LotsAdapter()
 
-    override fun onCreateView(
-        inflater: LayoutInflater, container: ViewGroup?,
-        savedInstanceState: Bundle?
-    ): View? {
-        return inflater.inflate(R.layout.fragment_profile, container, false)
-    }
-
-    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
-        super.onViewCreated(view, savedInstanceState)
-
-        setupListeners()
+    override fun initialize() {
         createLotsRecycler()
         setupProfileData()
     }
 
-    private fun setupListeners() {
+    private fun createLotsRecycler() {
+        recycler_profile.apply {
+            layoutManager = LinearLayoutManager(requireContext())
+            adapter = lotsAdapter
+        }
+    }
+
+    private fun setupProfileData() {
+        lotsAdapter.clear()
+        val lot = Lot(
+            R.drawable.ic_launcher_background,
+            "ЛОТ",
+            "ОПИСАНИЕ ЛОТА",
+            1200,
+            3400,
+            "21ч : 34м : 3с",
+            null,
+            false,
+        )
+        lotsAdapter.add(lot)
+        lotsAdapter.add(lot)
+        lotsAdapter.add(lot)
+        lotsAdapter.add(lot)
+        lotsAdapter.add(lot)
+        lotsAdapter.add(lot)
+    }
+
+    override fun setupListeners() {
         clickEdit()
         clickSettings()
         clickLotItem()
@@ -65,30 +78,7 @@ class ProfileFragment : Fragment() {
         })
     }
 
-    private fun createLotsRecycler() {
-        recycler_profile.apply {
-            layoutManager = LinearLayoutManager(requireContext())
-            adapter = lotsAdapter
-        }
-    }
+    override fun observe() {
 
-    private fun setupProfileData() {
-        lotsAdapter.clear()
-        val lot = Lot(
-            R.drawable.ic_launcher_background,
-            "ЛОТ",
-            "ОПИСАНИЕ ЛОТА",
-            1200,
-            3400,
-            "21ч : 34м : 3с",
-            null,
-            false,
-        )
-        lotsAdapter.add(lot)
-        lotsAdapter.add(lot)
-        lotsAdapter.add(lot)
-        lotsAdapter.add(lot)
-        lotsAdapter.add(lot)
-        lotsAdapter.add(lot)
     }
 }

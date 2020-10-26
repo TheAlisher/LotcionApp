@@ -1,7 +1,7 @@
 package com.alis.lotcion.ui.settings
 
-import androidx.lifecycle.ViewModel
+import com.alis.lotcion.base.BaseViewModel
 
-class SettingsViewModel : ViewModel() {
+class SettingsViewModel : BaseViewModel() {
 
 }

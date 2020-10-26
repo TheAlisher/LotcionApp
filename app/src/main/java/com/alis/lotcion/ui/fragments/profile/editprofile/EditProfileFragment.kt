@@ -1,25 +1,22 @@
 package com.alis.lotcion.ui.fragments.profile.editprofile
 
-import android.os.Bundle
-import androidx.fragment.app.Fragment
-import android.view.LayoutInflater
-import android.view.View
-import android.view.ViewGroup
 import com.alis.lotcion.R
-import org.koin.androidx.viewmodel.ext.android.viewModel
+import com.alis.lotcion.base.BaseFragment
+import org.koin.android.ext.android.inject
 
-class EditProfileFragment : Fragment() {
+class EditProfileFragment : BaseFragment<EditProfileViewModel>(R.layout.fragment_edit_profile) {
 
-    private val viewModel by viewModel<EditProfileViewModel>()
+    override val viewModel by inject<EditProfileViewModel>()
 
-    override fun onCreateView(
-        inflater: LayoutInflater, container: ViewGroup?,
-        savedInstanceState: Bundle?
-    ): View? {
-        return inflater.inflate(R.layout.fragment_edit_profile, container, false)
+    override fun initialize() {
+
     }
 
-    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
-        super.onViewCreated(view, savedInstanceState)
+    override fun setupListeners() {
+
+    }
+
+    override fun observe() {
+
     }
 }

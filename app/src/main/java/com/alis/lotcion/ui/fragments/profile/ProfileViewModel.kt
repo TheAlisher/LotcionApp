@@ -1,7 +1,7 @@
 package com.alis.lotcion.ui.fragments.profile
 
-import androidx.lifecycle.ViewModel
+import com.alis.lotcion.base.BaseViewModel
 
-class ProfileViewModel : ViewModel() {
+class ProfileViewModel : BaseViewModel() {
 
 }

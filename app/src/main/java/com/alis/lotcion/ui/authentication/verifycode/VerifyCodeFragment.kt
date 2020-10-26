@@ -1,12 +1,8 @@
 package com.alis.lotcion.ui.authentication.verifycode
 
-import android.os.Bundle
 import android.util.Log
-import android.view.LayoutInflater
-import android.view.View
-import android.view.ViewGroup
-import androidx.fragment.app.Fragment
 import com.alis.lotcion.R
+import com.alis.lotcion.base.BaseFragment
 import com.alis.lotcion.extensions.hideKeyboard
 import com.alis.lotcion.extensions.showToastShort
 import com.alis.lotcion.ui.fragments.home.HomeFragment
@@ -16,41 +12,20 @@ import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.FirebaseAuthInvalidCredentialsException
 import com.google.firebase.auth.PhoneAuthCredential
 import com.google.firebase.auth.PhoneAuthProvider
-import kotlinx.android.synthetic.main.fragment_sign_in.*
 import kotlinx.android.synthetic.main.fragment_verify_code.*
-import org.koin.androidx.viewmodel.ext.android.viewModel
+import org.koin.android.ext.android.inject
 import java.util.concurrent.TimeUnit
 
-class VerifyCodeFragment : Fragment() {
+class VerifyCodeFragment : BaseFragment<VerifyCodeViewModel>(R.layout.fragment_verify_code) {
 
-    private val viewModel by viewModel<VerifyCodeViewModel>()
+    override val viewModel by inject<VerifyCodeViewModel>()
 
     private val auth: FirebaseAuth = FirebaseAuth.getInstance()
     private lateinit var mVerificationID: String
 
-    override fun onCreateView(
-        inflater: LayoutInflater, container: ViewGroup?,
-        savedInstanceState: Bundle?
-    ): View? {
-        return inflater.inflate(R.layout.fragment_verify_code, container, false)
-    }
-
-    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
-        super.onViewCreated(view, savedInstanceState)
-
-        setupListeners()
+    override fun initialize() {
         auth.setLanguageCode("ru")
         sendVerificationCode()
-    }
-
-    private fun setupListeners() {
-        button_verify_code.setOnClickListener {
-            val code = edit_verify_code.text.toString().trim()
-            if (code.isNotEmpty()) {
-                val credential = PhoneAuthProvider.getCredential(mVerificationID, code)
-                signInWithAuthCredential(credential)
-            }
-        }
     }
 
     private fun sendVerificationCode() {
@@ -61,6 +36,20 @@ class VerifyCodeFragment : Fragment() {
             requireActivity(),
             callback
         )
+    }
+
+    override fun setupListeners() {
+        button_verify_code.setOnClickListener {
+            val code = edit_verify_code.text.toString().trim()
+            if (code.isNotEmpty()) {
+                val credential = PhoneAuthProvider.getCredential(mVerificationID, code)
+                signInWithAuthCredential(credential)
+            }
+        }
+    }
+
+    override fun observe() {
+
     }
 
     private val callback: PhoneAuthProvider.OnVerificationStateChangedCallbacks =

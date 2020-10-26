@@ -1,7 +1,7 @@
 package com.alis.lotcion.ui.fragments.addlot
 
-import androidx.lifecycle.ViewModel
+import com.alis.lotcion.base.BaseViewModel
 
-class AddLotViewModel : ViewModel() {
+class AddLotViewModel : BaseViewModel() {
 
 }

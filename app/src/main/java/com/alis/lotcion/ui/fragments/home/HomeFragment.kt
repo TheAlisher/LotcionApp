@@ -1,54 +1,28 @@
 package com.alis.lotcion.ui.fragments.home
 
 import android.app.Activity
-import android.content.res.Resources
 import android.os.Bundle
 import androidx.fragment.app.Fragment
-import android.view.LayoutInflater
-import android.view.View
-import android.view.ViewGroup
-import androidx.activity.addCallback
 import androidx.fragment.app.FragmentManager
 import androidx.fragment.app.FragmentPagerAdapter
-import androidx.fragment.app.FragmentStatePagerAdapter
 import androidx.navigation.Navigation
 import androidx.viewpager.widget.ViewPager
 import com.alis.lotcion.R
+import com.alis.lotcion.base.BaseFragment
 import com.alis.lotcion.extensions.showToastShort
 import com.alis.lotcion.ui.fragments.home.lots.LotsFragment
 import com.alis.lotcion.utils.SimpleTabSelectedListener
 import com.google.android.material.tabs.TabLayout
 import kotlinx.android.synthetic.main.fragment_home.*
 import kotlinx.android.synthetic.main.fragment_home.tabLayout_home
-import kotlinx.android.synthetic.main.fragment_home.view.*
 import org.koin.androidx.viewmodel.ext.android.viewModel
-import java.util.*
-import kotlin.collections.ArrayList
 
-class HomeFragment : Fragment() {
+class HomeFragment : BaseFragment<HomeViewModel>(R.layout.fragment_home) {
 
-    companion object {
-        fun start(activity: Activity, action: Int) {
-            Navigation
-                .findNavController(activity, R.id.nav_host_fragment)
-                .navigate(action)
-        }
-    }
+    override val viewModel by viewModel<HomeViewModel>()
 
-    private val viewModel by viewModel<HomeViewModel>()
-
-    override fun onCreateView(
-        inflater: LayoutInflater, container: ViewGroup?,
-        savedInstanceState: Bundle?
-    ): View? {
-        return inflater.inflate(R.layout.fragment_home, container, false)
-    }
-
-    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
-        super.onViewCreated(view, savedInstanceState)
-
+    override fun initialize() {
         createLotsPager()
-        setupListeners()
     }
 
     private fun createLotsPager() {
@@ -60,7 +34,7 @@ class HomeFragment : Fragment() {
         tabLayout_home.setupWithViewPager(pager_home)
     }
 
-    private fun setupListeners() {
+    override fun setupListeners() {
         addOnTabSelectedListener()
         addOnPageChangeListener()
     }
@@ -100,6 +74,18 @@ class HomeFragment : Fragment() {
                 resources.getColor(R.color.Gray, null),
                 resources.getColor(R.color.Black, null)
             )
+        }
+    }
+
+    override fun observe() {
+
+    }
+
+    companion object {
+        fun start(activity: Activity, action: Int) {
+            Navigation
+                .findNavController(activity, R.id.nav_host_fragment)
+                .navigate(action)
         }
     }
 

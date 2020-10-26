@@ -1,7 +1,7 @@
 package com.alis.lotcion.ui.authentication.signup
 
-import androidx.lifecycle.ViewModel
+import com.alis.lotcion.base.BaseViewModel
 
-class SignUpViewModel : ViewModel() {
+class SignUpViewModel : BaseViewModel() {
 
 }
