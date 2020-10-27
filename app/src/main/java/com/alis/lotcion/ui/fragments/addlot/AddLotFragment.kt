@@ -16,7 +16,7 @@ class AddLotFragment : BaseFragment<AddLotViewModel>(R.layout.fragment_add_lot) 
 
     override fun setupListeners() {
         button_add_lot.setOnClickListener {
-            showToastShort(requireContext(), "ОТДАЧА")
+
         }
     }
 
