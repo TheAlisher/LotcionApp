@@ -1,5 +1,7 @@
 package com.alis.lotcion.di
 
+import com.alis.lotcion.data.network.FirebaseClient
+import com.alis.lotcion.data.repository.LotsRepository
 import com.alis.lotcion.ui.authentication.signin.SignInViewModel
 import com.alis.lotcion.ui.authentication.signup.SignUpViewModel
 import com.alis.lotcion.ui.authentication.verifycode.VerifyCodeViewModel
@@ -14,11 +16,15 @@ import org.koin.dsl.module
 
 var lotcionModule = module {
 
+    single { FirebaseClient() }
+
+    factory { LotsRepository(get()) }
+
     viewModel { SignInViewModel() }
     viewModel { SignUpViewModel() }
     viewModel { VerifyCodeViewModel() }
     viewModel { HomeViewModel() }
-    viewModel { AddLotViewModel() }
+    viewModel { AddLotViewModel(get()) }
     viewModel { ProfileViewModel() }
     viewModel { LotsViewModel() }
     viewModel { EditProfileViewModel() }
