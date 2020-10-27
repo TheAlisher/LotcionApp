@@ -13,6 +13,19 @@ data class Lot(
     var isLiked: Boolean = false
 )
 
+fun getMockOneData(): Lot {
+    return Lot(
+        R.drawable.icon_edit_24,
+        "ЛОТ",
+        "ОПИСАНИЕ ЛОТА",
+        1200,
+        3400,
+        "21ч : 34м : 3с",
+        null,
+        false,
+    )
+}
+
 fun getMockData(): MutableList<Lot> {
     return mutableListOf<Lot>().apply {
         add(
