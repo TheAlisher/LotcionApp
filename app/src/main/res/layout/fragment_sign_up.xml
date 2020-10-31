@@ -23,9 +23,9 @@
             android:id="@+id/edit_sign_up_name"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:autofillHints="Name"
             android:hint="@string/hint_name"
-            android:inputType="textCapWords|textPersonName" />
+            android:inputType="textCapWords|textPersonName"
+            tools:ignore="Autofill" />
 
 
     </com.google.android.material.textfield.TextInputLayout>
@@ -40,9 +40,9 @@
             android:id="@+id/edit_sign_up_phone_number"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:autofillHints="PhoneNumber"
             android:hint="@string/hint_phone_number"
-            android:inputType="phone" />
+            android:inputType="phone"
+            tools:ignore="Autofill" />
 
 
     </com.google.android.material.textfield.TextInputLayout>
@@ -57,9 +57,9 @@
             android:id="@+id/edit_sign_up_password"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:autofillHints="Password"
             android:hint="@string/hint_password"
-            android:inputType="textPassword" />
+            android:inputType="textPassword"
+            tools:ignore="Autofill" />
 
 
     </com.google.android.material.textfield.TextInputLayout>
