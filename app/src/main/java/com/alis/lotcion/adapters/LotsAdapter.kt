@@ -7,7 +7,7 @@ import androidx.recyclerview.widget.RecyclerView
 import com.alis.lotcion.R
 import com.alis.lotcion.extensions.loadImage
 import com.alis.lotcion.models.Lot
-import kotlinx.android.synthetic.main.item_lots.view.*
+import kotlinx.android.synthetic.main.item_lot.view.*
 
 class LotsAdapter : RecyclerView.Adapter<LotsAdapter.LotsViewHolder>() {
 
@@ -16,7 +16,7 @@ class LotsAdapter : RecyclerView.Adapter<LotsAdapter.LotsViewHolder>() {
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): LotsViewHolder {
         return LotsViewHolder(
-            LayoutInflater.from(parent.context).inflate(R.layout.item_lots, parent, false)
+            LayoutInflater.from(parent.context).inflate(R.layout.item_lot, parent, false)
         )
     }
 
@@ -53,6 +53,8 @@ class LotsAdapter : RecyclerView.Adapter<LotsAdapter.LotsViewHolder>() {
             )
             itemView.text_item_lot_name.text = lot.name
             itemView.text_item_lot_description.text = lot.description
+            itemView.text_item_lot_time_left.text = lot.timeLeft
+            itemView.text_item_lot_price.text = "⊆" + lot.finalPrice.toString()
         }
     }
 
