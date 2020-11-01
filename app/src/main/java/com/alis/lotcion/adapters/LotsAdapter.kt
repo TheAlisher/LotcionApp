@@ -54,7 +54,7 @@ class LotsAdapter : RecyclerView.Adapter<LotsAdapter.LotsViewHolder>() {
             itemView.text_item_lot_name.text = lot.name
             itemView.text_item_lot_description.text = lot.description
             itemView.text_item_lot_time_left.text = lot.timeLeft
-            itemView.text_item_lot_price.text = "⊆" + lot.finalPrice.toString()
+            itemView.text_item_lot_price.text = "⊆ " + lot.finalPrice.toString()
         }
     }
 
