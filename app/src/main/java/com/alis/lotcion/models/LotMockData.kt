@@ -4,6 +4,7 @@ import com.alis.lotcion.R
 
 fun getMockOneData(): Lot {
     return Lot(
+        "lot 1",
         R.drawable.icon_edit_24,
         "ЛОТ",
         "ОПИСАНИЕ ЛОТА",
@@ -20,6 +21,7 @@ fun getMockData(): MutableList<Lot> {
     return mutableListOf<Lot>().apply {
         add(
             Lot(
+                "lot 1",
                 R.drawable.ic_launcher_background,
                 "ЛОТ",
                 "ОПИСАНИЕ ЛОТА",
@@ -33,6 +35,7 @@ fun getMockData(): MutableList<Lot> {
         )
         add(
             Lot(
+                "lot 1",
                 R.drawable.ic_launcher_background,
                 "ЛОТ",
                 "ОПИСАНИЕ ЛОТА",
@@ -46,6 +49,7 @@ fun getMockData(): MutableList<Lot> {
         )
         add(
             Lot(
+                "lot 1",
                 R.drawable.ic_launcher_background,
                 "ЛОТ",
                 "ОПИСАНИЕ ЛОТА",
@@ -59,6 +63,7 @@ fun getMockData(): MutableList<Lot> {
         )
         add(
             Lot(
+                "lot 1",
                 R.drawable.ic_launcher_background,
                 "ЛОТ",
                 "ОПИСАНИЕ ЛОТА",
@@ -72,6 +77,7 @@ fun getMockData(): MutableList<Lot> {
         )
         add(
             Lot(
+                "lot 1",
                 R.drawable.ic_launcher_background,
                 "ЛОТ",
                 "ОПИСАНИЕ ЛОТА",
@@ -85,6 +91,7 @@ fun getMockData(): MutableList<Lot> {
         )
         add(
             Lot(
+                "lot 1",
                 R.drawable.ic_launcher_background,
                 "ЛОТ",
                 "ОПИСАНИЕ",
@@ -98,6 +105,7 @@ fun getMockData(): MutableList<Lot> {
         )
         add(
             Lot(
+                "lot 1",
                 R.drawable.ic_launcher_background,
                 "ЛОТ",
                 "ОПИСАНИЕ ЛОТА",
@@ -111,6 +119,7 @@ fun getMockData(): MutableList<Lot> {
         )
         add(
             Lot(
+                "lot 1",
                 R.drawable.ic_launcher_background,
                 "ЛОТ",
                 "ОПИСАНИЕ ЛОТА",
@@ -124,6 +133,7 @@ fun getMockData(): MutableList<Lot> {
         )
         add(
             Lot(
+                "lot 1",
                 R.drawable.ic_launcher_background,
                 "ЛОТ",
                 "ОПИСАНИЕ ЛОТА",
@@ -137,6 +147,7 @@ fun getMockData(): MutableList<Lot> {
         )
         add(
             Lot(
+                "lot 1",
                 R.drawable.ic_launcher_background,
                 "ЛОТ",
                 "ОПИСАНИЕ ЛОТА",
