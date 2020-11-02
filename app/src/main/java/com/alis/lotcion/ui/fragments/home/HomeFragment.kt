@@ -20,6 +20,8 @@ class HomeFragment : BaseFragment<HomeViewModel>(R.layout.fragment_home) {
     override val viewModel by viewModel<HomeViewModel>()
 
     override fun initialize() {
+        requireActivity().currentFocus?.clearFocus()
+
         createLotsPager()
     }
 
