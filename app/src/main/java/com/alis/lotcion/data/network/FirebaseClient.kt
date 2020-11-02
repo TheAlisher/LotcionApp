@@ -11,7 +11,9 @@ class FirebaseClient {
 
     private val db = Firebase.firestore
 
-    fun fetchFavoriteLots() {
+    //region fetch
+
+    suspend fun fetchFavoriteLots() {
         db.collection("lots")
             .whereEqualTo("liked", true)
             .get()
@@ -25,50 +27,164 @@ class FirebaseClient {
             }
     }
 
-    fun fetchAllLots() {
+    suspend fun fetchAllLots() {
         db.collection("lots")
             .get()
             .addOnSuccessListener {
                 for (document in it) {
                     Log.d("FetchLots", "${document.id} => ${document.data}")
                 }
-
             }
             .addOnFailureListener {
                 Log.w("FetchLots", "Error getting document", it)
             }
     }
 
-    fun fetchArtLots() {
-
+    suspend fun fetchArtLots() {
+        db.collection("lots")
+            .whereEqualTo("category", "Исскуство")
+            .get()
+            .addOnSuccessListener {
+                for (document in it) {
+                    Log.d("FetchLots", "${document.id} => ${document.data}")
+                }
+            }
+            .addOnFailureListener {
+                Log.w("FetchLots", "Error getting document", it)
+            }
     }
 
-    fun fetchBookLots() {
-
+    suspend fun fetchBookLots() {
+        db.collection("lots")
+            .whereEqualTo("category", "Книги")
+            .get()
+            .addOnSuccessListener {
+                for (document in it) {
+                    Log.d("FetchLots", "${document.id} => ${document.data}")
+                }
+            }
+            .addOnFailureListener {
+                Log.w("FetchLots", "Error getting document", it)
+            }
     }
 
-    fun fetchHandiworkLots() {
-
+    suspend fun fetchHandiworkLots() {
+        db.collection("lots")
+            .whereEqualTo("category", "Рукоделие")
+            .get()
+            .addOnSuccessListener {
+                for (document in it) {
+                    Log.d("FetchLots", "${document.id} => ${document.data}")
+                }
+            }
+            .addOnFailureListener {
+                Log.w("FetchLots", "Error getting document", it)
+            }
     }
 
-    fun fetchPropertyLots() {
-
+    suspend fun fetchPropertyLots() {
+        db.collection("lots")
+            .whereEqualTo("category", "Недвижимость")
+            .get()
+            .addOnSuccessListener {
+                for (document in it) {
+                    Log.d("FetchLots", "${document.id} => ${document.data}")
+                }
+            }
+            .addOnFailureListener {
+                Log.w("FetchLots", "Error getting document", it)
+            }
     }
 
-    fun fetchTransportLots() {
-
+    suspend fun fetchTransportLots() {
+        db.collection("lots")
+            .whereEqualTo("category", "Транспорт")
+            .get()
+            .addOnSuccessListener {
+                for (document in it) {
+                    Log.d("FetchLots", "${document.id} => ${document.data}")
+                }
+            }
+            .addOnFailureListener {
+                Log.w("FetchLots", "Error getting document", it)
+            }
     }
 
-    fun fetchAccessoryLots() {
-
+    suspend fun fetchAccessoryLots() {
+        db.collection("lots")
+            .whereEqualTo("category", "Аксессуары")
+            .get()
+            .addOnSuccessListener {
+                for (document in it) {
+                    Log.d("FetchLots", "${document.id} => ${document.data}")
+                }
+            }
+            .addOnFailureListener {
+                Log.w("FetchLots", "Error getting document", it)
+            }
     }
 
-    fun fetchElectronicLots() {
-
+    suspend fun fetchElectronicLots() {
+        db.collection("lots")
+            .whereEqualTo("category", "Электроника")
+            .get()
+            .addOnSuccessListener {
+                for (document in it) {
+                    Log.d("FetchLots", "${document.id} => ${document.data}")
+                }
+            }
+            .addOnFailureListener {
+                Log.w("FetchLots", "Error getting document", it)
+            }
     }
 
-    fun fetchAnimalLots() {
+    suspend fun fetchAnimalLots() {
+        db.collection("lots")
+            .whereEqualTo("category", "Животные")
+            .get()
+            .addOnSuccessListener {
+                for (document in it) {
+                    Log.d("FetchLots", "${document.id} => ${document.data}")
+                }
+            }
+            .addOnFailureListener {
+                Log.w("FetchLots", "Error getting document", it)
+            }
+    }
 
+    //endregion
+
+    // region action
+
+    fun putLikeUnlikeLot(lotID: String) {
+        db.collection("lots")
+            .document(lotID)
+            .get()
+            .addOnSuccessListener {
+                val isLiked: Boolean = it.get("liked") as Boolean
+
+                if (isLiked) {
+                    unlikeLot(lotID)
+                } else {
+                    likeLot(lotID)
+                }
+            }
+    }
+
+    private fun likeLot(lotID: String) {
+        db.collection("lots")
+            .document(lotID)
+            .update("liked", true)
+            .addOnSuccessListener { Log.d("LikeLot", "DocumentSnapshot successfully updated!") }
+            .addOnFailureListener { Log.w("LikeLot", "Error updating document", it) }
+    }
+
+    private fun unlikeLot(lotID: String) {
+        db.collection("lots")
+            .document(lotID)
+            .update("liked", false)
+            .addOnSuccessListener { Log.d("UnlikeLot", "DocumentSnapshot successfully updated!") }
+            .addOnFailureListener { Log.w("UnlikeLot", "Error updating document", it) }
     }
 
     fun addLot(lot: Lot) {
@@ -78,6 +194,7 @@ class FirebaseClient {
             .addOnSuccessListener {
                 val lotID = "lot " + it.get("number of lots").toString()
 
+                lot.id = lotID
                 db.collection("lots")
                     .document(lotID)
                     .set(lot)
@@ -104,4 +221,6 @@ class FirebaseClient {
                 Log.w("PlaceBet", "Exception$it")
             }
     }
+
+    // endregion
 }
