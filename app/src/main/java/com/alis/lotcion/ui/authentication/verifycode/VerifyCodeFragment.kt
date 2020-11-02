@@ -1,11 +1,11 @@
 package com.alis.lotcion.ui.authentication.verifycode
 
 import android.util.Log
+import androidx.navigation.fragment.findNavController
 import com.alis.lotcion.R
 import com.alis.lotcion.base.BaseFragment
 import com.alis.lotcion.extensions.hideKeyboard
 import com.alis.lotcion.extensions.showToastShort
-import com.alis.lotcion.ui.fragments.home.HomeFragment
 import com.google.firebase.FirebaseException
 import com.google.firebase.FirebaseTooManyRequestsException
 import com.google.firebase.auth.FirebaseAuth
@@ -90,11 +90,8 @@ class VerifyCodeFragment : BaseFragment<VerifyCodeViewModel>(R.layout.fragment_v
                     Log.d("PhoneAuth", "signInWithCredential:success")
                     showToastShort(requireContext(), R.string.toast_you_are_successfully_signed)
 
-                    HomeFragment.start(
-                        requireActivity(),
-                        R.id.action_verifyCodeFragment_to_navigation_home
-                    )
-                    hideKeyboard(requireActivity())
+                    requireActivity().hideKeyboard()
+                    findNavController().popBackStack(R.id.navigation_home, false)
 
                 } else {
                     Log.w("PhoneAuth", "signInWithCredential:failure", task.exception)
