@@ -63,7 +63,7 @@ class SignInFragment : BaseFragment<SignInViewModel>(R.layout.fragment_sign_in) 
 
     private fun clickSignIn() {
         button_sign_in.setOnClickListener {
-            findNavController().navigate(R.id.action_signInFragment_to_navigation_home)
+            findNavController().navigate(R.id.action_global_navigation_home)
         }
     }
 
@@ -103,7 +103,7 @@ class SignInFragment : BaseFragment<SignInViewModel>(R.layout.fragment_sign_in) 
                 if (task.isSuccessful) {
                     Log.d("GoogleAuth", "signInWithCredential:success")
 
-                    findNavController().navigate(R.id.action_signInFragment_to_navigation_home)
+                    findNavController().navigate(R.id.action_global_navigation_home)
 
                 } else {
                     Log.w("GoogleAuth", "signInWithCredential:failure", task.exception)
