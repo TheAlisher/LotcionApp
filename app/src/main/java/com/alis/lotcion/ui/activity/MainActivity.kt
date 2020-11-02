@@ -48,6 +48,7 @@ class MainActivity : AppCompatActivity() {
                 R.id.navigation_profile -> {
                     bottomNav.visible()
                     window.decorView.systemUiVisibility = View.SYSTEM_UI_FLAG_VISIBLE
+                    currentFocus?.clearFocus()
                 }
                 R.id.lotFragment -> {
                     bottomNav.gone()
