@@ -15,14 +15,16 @@
             app:destination="@id/signUpFragment" />
         <action
             android:id="@+id/action_signInFragment_to_navigation_home"
-            app:destination="@id/navigation_home" />
+            app:destination="@id/navigation_home"
+            app:popUpTo="@id/navigation_home"
+            app:popUpToInclusive="true" />
     </fragment>
 
     <fragment
         android:id="@+id/signUpFragment"
         android:name="com.alis.lotcion.ui.authentication.signup.SignUpFragment"
         android:label="fragment_sign_up"
-        tools:layout="@layout/fragment_sign_up" >
+        tools:layout="@layout/fragment_sign_up">
         <action
             android:id="@+id/action_signUpFragment_to_verifyCodeFragment"
             app:destination="@id/verifyCodeFragment" />
@@ -32,17 +34,19 @@
         android:id="@+id/verifyCodeFragment"
         android:name="com.alis.lotcion.ui.authentication.verifycode.VerifyCodeFragment"
         android:label="fragment_verify_code"
-        tools:layout="@layout/fragment_verify_code" >
+        tools:layout="@layout/fragment_verify_code">
         <action
             android:id="@+id/action_verifyCodeFragment_to_navigation_home"
-            app:destination="@id/navigation_home" />
+            app:destination="@id/navigation_home"
+            app:popUpTo="@id/navigation_home"
+            app:popUpToInclusive="true" />
     </fragment>
 
     <fragment
         android:id="@+id/navigation_home"
         android:name="com.alis.lotcion.ui.fragments.home.HomeFragment"
         android:label="@string/navigation_home"
-        tools:layout="@layout/fragment_home" >
+        tools:layout="@layout/fragment_home">
         <action
             android:id="@+id/action_navigation_home_to_lotFragment"
             app:destination="@id/lotFragment" />
@@ -58,7 +62,7 @@
         android:id="@+id/navigation_profile"
         android:name="com.alis.lotcion.ui.fragments.profile.ProfileFragment"
         android:label="@string/navigation_profile"
-        tools:layout="@layout/fragment_profile" >
+        tools:layout="@layout/fragment_profile">
         <action
             android:id="@+id/action_navigation_profile_to_editProfileFragment"
             app:destination="@id/editProfileFragment" />
@@ -80,10 +84,12 @@
         android:id="@+id/settingsFragment"
         android:name="com.alis.lotcion.ui.settings.SettingsFragment"
         android:label="fragment_settings"
-        tools:layout="@layout/fragment_settings" >
+        tools:layout="@layout/fragment_settings">
         <action
             android:id="@+id/action_settingsFragment_to_signInFragment"
-            app:destination="@id/signInFragment" />
+            app:destination="@id/signInFragment"
+            app:popUpTo="@id/navigation_home"
+            app:popUpToInclusive="true" />
     </fragment>
 
     <fragment

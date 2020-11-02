@@ -1,12 +1,15 @@
 package com.alis.lotcion.ui.fragments.home
 
+import android.app.Activity
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.FragmentManager
 import androidx.fragment.app.FragmentPagerAdapter
+import androidx.navigation.Navigation
 import androidx.viewpager.widget.ViewPager
 import com.alis.lotcion.R
 import com.alis.lotcion.base.BaseFragment
+import com.alis.lotcion.extensions.hideKeyboard
 import com.alis.lotcion.extensions.showToastShort
 import com.alis.lotcion.ui.fragments.home.lots.LotsFragment
 import com.alis.lotcion.utils.SimpleTabSelectedListener
@@ -77,6 +80,16 @@ class HomeFragment : BaseFragment<HomeViewModel>(R.layout.fragment_home) {
 
     override fun observe() {
 
+    }
+
+    companion object {
+        fun start(activity: Activity, action: Int) {
+            Navigation
+                .findNavController(activity, R.id.nav_host_fragment)
+                .navigate(action)
+
+            activity.hideKeyboard()
+        }
     }
 
     class HomePagerAdapter(fragmentManager: FragmentManager) :
