@@ -6,6 +6,7 @@ data class Lot(
     var image: Int?,
     var name: String?,
     var description: String?,
+    var category: String?,
     var startingPrice: Int?,
     var finalPrice: Int?,
     var timeLeft: String?,
@@ -18,6 +19,7 @@ fun getMockOneData(): Lot {
         R.drawable.icon_edit_24,
         "ЛОТ",
         "ОПИСАНИЕ ЛОТА",
+        "Все",
         1200,
         3400,
         "21ч : 34м : 3с",
@@ -33,6 +35,7 @@ fun getMockData(): MutableList<Lot> {
                 R.drawable.ic_launcher_background,
                 "ЛОТ",
                 "ОПИСАНИЕ ЛОТА",
+                "Все",
                 1200,
                 3400,
                 "21ч : 34м : 3с",
@@ -45,6 +48,7 @@ fun getMockData(): MutableList<Lot> {
                 R.drawable.ic_launcher_background,
                 "ЛОТ",
                 "ОПИСАНИЕ ЛОТА",
+                "Все",
                 1200,
                 3400,
                 "21ч : 34м : 3с",
@@ -57,6 +61,7 @@ fun getMockData(): MutableList<Lot> {
                 R.drawable.ic_launcher_background,
                 "ЛОТ",
                 "ОПИСАНИЕ ЛОТА",
+                "Все",
                 1200,
                 3400,
                 "21ч : 34м : 3с",
@@ -69,6 +74,7 @@ fun getMockData(): MutableList<Lot> {
                 R.drawable.ic_launcher_background,
                 "ЛОТ",
                 "ОПИСАНИЕ ЛОТА",
+                "Все",
                 1200,
                 3400,
                 "21ч : 34м : 3с",
@@ -81,6 +87,7 @@ fun getMockData(): MutableList<Lot> {
                 R.drawable.ic_launcher_background,
                 "ЛОТ",
                 "ОПИСАНИЕ ЛОТА",
+                "Все",
                 1200,
                 3400,
                 "21ч : 34м : 3с",
@@ -92,31 +99,8 @@ fun getMockData(): MutableList<Lot> {
             Lot(
                 R.drawable.ic_launcher_background,
                 "ЛОТ",
-                "ОПИСАНИЕ ",
-                1200,
-                3400,
-                "21ч : 34м : 3с",
-                null,
-                false,
-            )
-        )
-        add(
-            Lot(
-                R.drawable.ic_launcher_background,
-                "ЛОТ",
-                "ОПИСАНИЕ ЛОТА",
-                1200,
-                3400,
-                "21ч : 34м : 3с",
-                null,
-                false,
-            )
-        )
-        add(
-            Lot(
-                R.drawable.ic_launcher_background,
-                "ЛОТ",
-                "ОПИСАНИЕ ЛОТА",
+                "ОПИСАНИЕ",
+                "Все",
                 1200,
                 3400,
                 "21ч : 34м : 3с",
@@ -129,6 +113,7 @@ fun getMockData(): MutableList<Lot> {
                 R.drawable.ic_launcher_background,
                 "ЛОТ",
                 "ОПИСАНИЕ ЛОТА",
+                "Все",
                 1200,
                 3400,
                 "21ч : 34м : 3с",
@@ -141,6 +126,33 @@ fun getMockData(): MutableList<Lot> {
                 R.drawable.ic_launcher_background,
                 "ЛОТ",
                 "ОПИСАНИЕ ЛОТА",
+                "Все",
+                1200,
+                3400,
+                "21ч : 34м : 3с",
+                null,
+                false,
+            )
+        )
+        add(
+            Lot(
+                R.drawable.ic_launcher_background,
+                "ЛОТ",
+                "ОПИСАНИЕ ЛОТА",
+                "Все",
+                1200,
+                3400,
+                "21ч : 34м : 3с",
+                null,
+                false,
+            )
+        )
+        add(
+            Lot(
+                R.drawable.ic_launcher_background,
+                "ЛОТ",
+                "ОПИСАНИЕ ЛОТА",
+                "Все",
                 1200,
                 3400,
                 "21ч : 34м : 3с",
