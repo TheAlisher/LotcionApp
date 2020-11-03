@@ -7,7 +7,6 @@ import androidx.activity.addCallback
 import androidx.navigation.fragment.findNavController
 import com.alis.lotcion.R
 import com.alis.lotcion.base.BaseFragment
-import com.alis.lotcion.ui.fragments.home.HomeFragment
 import com.google.android.gms.auth.api.signin.GoogleSignIn
 import com.google.android.gms.auth.api.signin.GoogleSignInClient
 import com.google.android.gms.auth.api.signin.GoogleSignInOptions
@@ -64,7 +63,7 @@ class SignInFragment : BaseFragment<SignInViewModel>(R.layout.fragment_sign_in) 
 
     private fun clickSignIn() {
         button_sign_in.setOnClickListener {
-            HomeFragment.start(requireActivity(), R.id.action_signInFragment_to_navigation_home)
+            findNavController().navigate(R.id.action_global_navigation_home)
         }
     }
 
@@ -104,10 +103,7 @@ class SignInFragment : BaseFragment<SignInViewModel>(R.layout.fragment_sign_in) 
                 if (task.isSuccessful) {
                     Log.d("GoogleAuth", "signInWithCredential:success")
 
-                    HomeFragment.start(
-                        requireActivity(),
-                        R.id.action_signInFragment_to_navigation_home
-                    )
+                    findNavController().navigate(R.id.action_global_navigation_home)
 
                 } else {
                     Log.w("GoogleAuth", "signInWithCredential:failure", task.exception)

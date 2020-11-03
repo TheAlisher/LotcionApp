@@ -12,6 +12,10 @@
     <string name="hint_name">Имя</string>
     <string name="hint_enter_code">Введите код…</string>
     <string name="hint_search">Поиск…</string>
+    <string name="hint_lot_name">Название лота</string>
+    <string name="hint_lot_description">Описание лота</string>
+    <string name="hint_lot_price">Цена лота</string>
+    <string name="hint_lot_how_long_will_auction_last">Как долго продлится аукцион?</string>
 
     <!--Toast-->
     <string name="toast_you_are_successfully_signed">Вы успешно вошли</string>

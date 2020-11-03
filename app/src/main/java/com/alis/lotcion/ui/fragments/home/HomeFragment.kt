@@ -1,12 +1,9 @@
 package com.alis.lotcion.ui.fragments.home
 
-import android.app.Activity
 import android.os.Bundle
-import androidx.activity.addCallback
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.FragmentManager
 import androidx.fragment.app.FragmentPagerAdapter
-import androidx.navigation.Navigation
 import androidx.viewpager.widget.ViewPager
 import com.alis.lotcion.R
 import com.alis.lotcion.base.BaseFragment
@@ -22,18 +19,9 @@ class HomeFragment : BaseFragment<HomeViewModel>(R.layout.fragment_home) {
 
     override val viewModel by viewModel<HomeViewModel>()
 
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-        overrideOnBackPressed()
-    }
-
-    private fun overrideOnBackPressed() {
-        requireActivity().onBackPressedDispatcher.addCallback(this) {
-            requireActivity().finish()
-        }
-    }
-
     override fun initialize() {
+        requireActivity().currentFocus?.clearFocus()
+
         createLotsPager()
     }
 
@@ -93,18 +81,10 @@ class HomeFragment : BaseFragment<HomeViewModel>(R.layout.fragment_home) {
 
     }
 
-    companion object {
-        fun start(activity: Activity, action: Int) {
-            Navigation
-                .findNavController(activity, R.id.nav_host_fragment)
-                .navigate(action)
-        }
-    }
-
     class HomePagerAdapter(fragmentManager: FragmentManager) :
         FragmentPagerAdapter(
             fragmentManager,
-            FragmentPagerAdapter.BEHAVIOR_RESUME_ONLY_CURRENT_FRAGMENT
+            BEHAVIOR_RESUME_ONLY_CURRENT_FRAGMENT
         ) {
 
         private val fragmentTitle = mutableListOf(

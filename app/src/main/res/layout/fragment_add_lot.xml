@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
@@ -7,21 +8,83 @@
     android:orientation="vertical"
     tools:context=".ui.fragments.addlot.AddLotFragment">
 
-    <EditText
+    <com.google.android.material.textfield.TextInputLayout
+        style="@style/AddLotInputLayout"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content" />
+        android:layout_height="wrap_content">
 
-    <EditText
+        <EditText
+            android:id="@+id/edit_add_lot_name"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="@string/hint_lot_name"
+            android:inputType="textMultiLine"
+            tools:ignore="Autofill" />
+
+
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <com.google.android.material.textfield.TextInputLayout
+        style="@style/AddLotInputLayout"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content" />
+        android:layout_height="wrap_content">
 
-    <Button
+        <EditText
+            android:id="@+id/edit_add_lot_description"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="@string/hint_lot_description"
+            android:inputType="textMultiLine"
+            tools:ignore="Autofill" />
+
+
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <com.google.android.material.textfield.TextInputLayout
+        style="@style/AddLotInputLayout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <EditText
+            android:id="@+id/edit_add_lot_price"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="@string/hint_lot_price"
+            android:inputType="textMultiLine"
+            tools:ignore="Autofill" />
+
+
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <com.google.android.material.textfield.TextInputLayout
+        style="@style/AddLotInputLayout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <EditText
+            android:id="@+id/edit_add_lot_how_long_will_last"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="@string/hint_lot_how_long_will_auction_last"
+            android:inputType="textMultiLine"
+            tools:ignore="Autofill" />
+
+
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <com.google.android.material.button.MaterialButton
         android:id="@+id/button_add_lot"
+        style="@style/Widget.MaterialComponents.Button.OutlinedButton"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_margin="60dp"
         android:text="@string/button_add_lot"
         android:textAllCaps="false"
-        android:textSize="30sp" />
+        android:textColor="@color/black"
+        android:textSize="20sp"
+        app:cornerRadius="100dp"
+        app:strokeColor="@color/black"
+        app:strokeWidth="2dp" />
 
 
 </LinearLayout>

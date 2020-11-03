@@ -43,11 +43,11 @@ fun ImageView.loadImage(url: String?, placeholder: Int = 0) {
         .into(this)
 }
 
-fun hideKeyboard(activity: Activity) {
-    val imm = activity.getSystemService(Activity.INPUT_METHOD_SERVICE) as InputMethodManager
-    var view = activity.currentFocus
+fun Activity.hideKeyboard() {
+    val imm = this.getSystemService(Activity.INPUT_METHOD_SERVICE) as InputMethodManager
+    var view = this.currentFocus
     if (view == null) {
-        view = View(activity)
+        view = View(this)
     }
     imm.hideSoftInputFromWindow(view.windowToken, 0)
 }

@@ -15,5 +15,13 @@
         <item name="iconTint">@color/Black</item>
     </style>
 
+    <style name="AddLotInputLayout" parent="Widget.MaterialComponents.TextInputLayout.FilledBox">
+        <item name="android:layout_margin">10dp</item>
+        <item name="android:elevation">10dp</item>
+        <item name="boxBackgroundColor">@color/white</item>
+        <item name="boxStrokeWidth">1dp</item>
+        <item name="hintEnabled">false</item>
+    </style>
+
 
 </resources>

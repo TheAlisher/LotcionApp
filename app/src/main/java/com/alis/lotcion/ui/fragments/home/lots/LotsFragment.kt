@@ -31,7 +31,7 @@ class LotsFragment : BaseFragment<LotsViewModel>(R.layout.fragment_lots) {
         lotsAdapter.setOnItemClickListener(object : LotsAdapter.OnItemClickListener {
             override fun onLotItemClick(item: Lot) {
                 LotFragment.start(
-                    requireActivity(),
+                    this@LotsFragment,
                     R.id.action_navigation_home_to_lotFragment,
                     item
                 )

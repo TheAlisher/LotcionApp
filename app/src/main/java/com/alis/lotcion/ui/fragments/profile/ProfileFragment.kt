@@ -6,6 +6,7 @@ import com.alis.lotcion.R
 import com.alis.lotcion.adapters.LotsAdapter
 import com.alis.lotcion.base.BaseFragment
 import com.alis.lotcion.models.Lot
+import com.alis.lotcion.models.getMockOneData
 import com.alis.lotcion.ui.lot.LotFragment
 import kotlinx.android.synthetic.main.fragment_profile.*
 import org.koin.android.ext.android.inject
@@ -30,16 +31,7 @@ class ProfileFragment : BaseFragment<ProfileViewModel>(R.layout.fragment_profile
 
     private fun setupProfileData() {
         lotsAdapter.clear()
-        val lot = Lot(
-            R.drawable.ic_launcher_background,
-            "ЛОТ",
-            "ОПИСАНИЕ ЛОТА",
-            1200,
-            3400,
-            "21ч : 34м : 3с",
-            null,
-            false,
-        )
+        val lot = getMockOneData()
         lotsAdapter.add(lot)
         lotsAdapter.add(lot)
         lotsAdapter.add(lot)
@@ -70,7 +62,7 @@ class ProfileFragment : BaseFragment<ProfileViewModel>(R.layout.fragment_profile
         lotsAdapter.setOnItemClickListener(object : LotsAdapter.OnItemClickListener {
             override fun onLotItemClick(item: Lot) {
                 LotFragment.start(
-                    requireActivity(),
+                    this@ProfileFragment,
                     R.id.action_navigation_profile_to_lotFragment,
                     item
                 )

@@ -1,7 +1,7 @@
 package com.alis.lotcion.ui.lot
 
-import android.app.Activity
-import androidx.navigation.Navigation
+import androidx.fragment.app.Fragment
+import androidx.navigation.fragment.findNavController
 import com.alis.lotcion.R
 import com.alis.lotcion.base.BaseFragment
 import com.alis.lotcion.models.Lot
@@ -25,11 +25,9 @@ class LotFragment : BaseFragment<LotViewModel>(R.layout.fragment_lot) {
 
     companion object {
         private var item: Lot? = null
-        fun start(activity: Activity, action: Int, item: Lot) {
+        fun start(fragment: Fragment, action: Int, item: Lot) {
+            fragment.findNavController().navigate(action)
             this.item = item
-            Navigation
-                .findNavController(activity, R.id.nav_host_fragment)
-                .navigate(action)
         }
     }
 }
