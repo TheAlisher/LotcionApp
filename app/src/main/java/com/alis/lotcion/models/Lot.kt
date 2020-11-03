@@ -1,14 +1,15 @@
 package com.alis.lotcion.models
 
 data class Lot(
-    var id: String,
-    var image: Int?,
-    var name: String?,
-    var description: String?,
-    var category: String?,
-    var startingPrice: Int?,
-    var finalPrice: Int?,
-    var timeLeft: String?,
-    var bidders: MutableList<Bidder>?,
+    var id: String? = null,
+    var image: Int? = null,
+    var name: String? = null,
+    var description: String? = null,
+    var category: String? = null,
+    var startingPrice: Int? = null,
+    var finalPrice: Int? = null,
+    var timeLeft: String? = null,
+    var bidders: MutableList<Bidder>? = null,
+    @field:JvmField
     var isLiked: Boolean = false
 )
