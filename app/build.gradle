@@ -69,7 +69,7 @@ dependencies {
     // Firebase Auth
     implementation 'com.google.firebase:firebase-auth-ktx'
     // Firebase Google Auth
-    implementation 'com.google.android.gms:play-services-auth:18.1.0'
+    implementation 'com.google.android.gms:play-services-auth:19.0.0'
     // Firebase Cloud Firestore
     implementation 'com.google.firebase:firebase-firestore-ktx'
 
