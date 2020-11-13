@@ -1,5 +1,6 @@
 package com.alis.lotcion.di
 
+import com.alis.lotcion.data.Preferences
 import com.alis.lotcion.data.network.FirebaseClient
 import com.alis.lotcion.data.repository.FirebaseRepository
 import com.alis.lotcion.ui.authentication.signin.SignInViewModel
@@ -16,6 +17,7 @@ import org.koin.dsl.module
 
 var lotcionModule = module {
 
+    single { Preferences(get()) }
     single { FirebaseClient().provideFirebase() }
 
     factory { FirebaseRepository(get()) }
