@@ -19,7 +19,7 @@ class SettingsFragment : BaseFragment<SettingsViewModel>(R.layout.fragment_setti
     override fun setupListeners() {
         button_settings_sign_out.setOnClickListener {
             Firebase.auth.signOut()
-            findNavController().navigate(R.id.action_settingsFragment_to_signInFragment)
+            findNavController().navigate(R.id.action_global_signInFragment)
         }
     }
 

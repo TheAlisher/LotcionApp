@@ -75,7 +75,7 @@ class MainActivity : AppCompatActivity() {
 
     private fun isAuthentication() {
         if (FirebaseAuth.getInstance().currentUser == null) {
-            navController.navigate(R.id.signInFragment)
+            navController.navigate(R.id.action_global_signInFragment)
         }
     }
 }

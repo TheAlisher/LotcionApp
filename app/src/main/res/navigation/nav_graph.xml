@@ -7,14 +7,14 @@
 
     <action
         android:id="@+id/action_global_signInFragment"
-        app:popUpToInclusive="true"
+        app:destination="@id/signInFragment"
         app:popUpTo="@id/nav_graph"
-        app:destination="@id/signInFragment" />
+        app:popUpToInclusive="true" />
 
     <action
         android:id="@+id/action_global_navigation_home"
         app:destination="@id/navigation_home"
-        app:popUpTo="@id/navigation_home"
+        app:popUpTo="@id/nav_graph"
         app:popUpToInclusive="true" />
 
     <fragment
@@ -85,13 +85,7 @@
         android:id="@+id/settingsFragment"
         android:name="com.alis.lotcion.ui.settings.SettingsFragment"
         android:label="fragment_settings"
-        tools:layout="@layout/fragment_settings">
-        <action
-            android:id="@+id/action_settingsFragment_to_signInFragment"
-            app:destination="@id/signInFragment"
-            app:popUpTo="@id/navigation_home"
-            app:popUpToInclusive="true" />
-    </fragment>
+        tools:layout="@layout/fragment_settings" />
 
     <fragment
         android:id="@+id/lotFragment"
