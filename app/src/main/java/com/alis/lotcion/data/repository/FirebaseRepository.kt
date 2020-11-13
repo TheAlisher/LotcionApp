@@ -149,37 +149,6 @@ class FirebaseRepository(private val db: FirebaseFirestore) {
             }
     }
 
-    fun putLikeUnlikeLot(lotID: String) {
-        lotRef
-            .document(lotID)
-            .get()
-            .addOnSuccessListener {
-                val isLiked: Boolean = it.get("liked") as Boolean
-
-                if (isLiked) {
-                    unlikeLot(lotID)
-                } else {
-                    likeLot(lotID)
-                }
-            }
-    }
-
-    private fun likeLot(lotID: String) {
-        lotRef
-            .document(lotID)
-            .update("liked", true)
-            .addOnSuccessListener { Log.d("LikeLot", "DocumentSnapshot successfully updated!") }
-            .addOnFailureListener { Log.w("LikeLot", "Error updating document", it) }
-    }
-
-    private fun unlikeLot(lotID: String) {
-        lotRef
-            .document(lotID)
-            .update("liked", false)
-            .addOnSuccessListener { Log.d("UnlikeLot", "DocumentSnapshot successfully updated!") }
-            .addOnFailureListener { Log.w("UnlikeLot", "Error updating document", it) }
-    }
-
     fun addLot(lot: Lot) {
         db.collection("number of lots")
             .document("number of lots")
