@@ -24,17 +24,6 @@ class SignInFragment : BaseFragment<SignInViewModel>(R.layout.fragment_sign_in) 
     private val RC_SIGN_IN = 33
     private lateinit var auth: FirebaseAuth
 
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-        overrideOnBackPressed()
-    }
-
-    private fun overrideOnBackPressed() {
-        requireActivity().onBackPressedDispatcher.addCallback(this) {
-            requireActivity().finish()
-        }
-    }
-
     override fun initialize() {
         auth = FirebaseAuth.getInstance()
         configureGoogleSignIn()
