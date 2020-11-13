@@ -35,6 +35,7 @@ class MainActivity : AppCompatActivity() {
         navController.addOnDestinationChangedListener { controller, destination, arguments ->
             changedListenerBottomNavigation(destination.id)
             changedListenerStatusBar(destination.id)
+            changedListenerCurrentFocus(destination.id)
         }
     }
 
@@ -67,6 +68,12 @@ class MainActivity : AppCompatActivity() {
                     WindowManager.LayoutParams.FLAG_FULLSCREEN
                 )
             }
+        }
+    }
+
+    private fun changedListenerCurrentFocus(id: Int) {
+        when (id) {
+            R.id.navigation_home -> currentFocus?.clearFocus()
         }
     }
 
