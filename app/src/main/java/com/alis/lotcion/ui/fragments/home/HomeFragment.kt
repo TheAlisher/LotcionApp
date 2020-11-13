@@ -12,11 +12,11 @@ import com.alis.lotcion.utils.SimpleTabSelectedListener
 import com.google.android.material.tabs.TabLayout
 import kotlinx.android.synthetic.main.fragment_home.*
 import kotlinx.android.synthetic.main.fragment_home.tabLayout_home
-import org.koin.androidx.viewmodel.ext.android.viewModel
+import org.koin.android.ext.android.inject
 
 class HomeFragment : BaseFragment<HomeViewModel>(R.layout.fragment_home) {
 
-    override val viewModel by viewModel<HomeViewModel>()
+    override val viewModel by inject<HomeViewModel>()
 
     override fun initialize() {
         createLotsPager()
