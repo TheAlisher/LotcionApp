@@ -5,6 +5,18 @@
     android:id="@+id/nav_graph"
     app:startDestination="@id/navigation_home">
 
+    <action
+        android:id="@+id/action_global_signInFragment"
+        app:popUpToInclusive="true"
+        app:popUpTo="@id/nav_graph"
+        app:destination="@id/signInFragment" />
+
+    <action
+        android:id="@+id/action_global_navigation_home"
+        app:destination="@id/navigation_home"
+        app:popUpTo="@id/navigation_home"
+        app:popUpToInclusive="true" />
+
     <fragment
         android:id="@+id/signInFragment"
         android:name="com.alis.lotcion.ui.authentication.signin.SignInFragment"
@@ -30,12 +42,6 @@
         android:name="com.alis.lotcion.ui.authentication.verifycode.VerifyCodeFragment"
         android:label="fragment_verify_code"
         tools:layout="@layout/fragment_verify_code" />
-
-    <action
-        android:id="@+id/action_global_navigation_home"
-        app:destination="@id/navigation_home"
-        app:popUpTo="@id/navigation_home"
-        app:popUpToInclusive="true" />
 
     <fragment
         android:id="@+id/navigation_home"
