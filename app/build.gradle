@@ -5,6 +5,9 @@ plugins {
     // Synthetic
     id 'kotlin-android-extensions'
 
+    // Safe Args
+    id 'androidx.navigation.safeargs.kotlin'
+
     // Firebase
     id 'com.google.gms.google-services'
 }
