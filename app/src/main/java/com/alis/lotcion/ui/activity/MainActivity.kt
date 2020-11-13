@@ -2,8 +2,6 @@ package com.alis.lotcion.ui.activity
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.view.View
-import android.view.WindowInsets
 import android.view.WindowManager
 import androidx.navigation.NavController
 import androidx.navigation.fragment.NavHostFragment
@@ -13,7 +11,6 @@ import com.alis.lotcion.extensions.gone
 import com.alis.lotcion.extensions.visible
 import com.google.firebase.auth.FirebaseAuth
 import kotlinx.android.synthetic.main.activity_main.*
-import android.view.WindowInsetsController as WindowInsetsController
 
 class MainActivity : AppCompatActivity() {
 
@@ -36,12 +33,12 @@ class MainActivity : AppCompatActivity() {
 
     private fun addNavControllerDestinationChangedListener() {
         navController.addOnDestinationChangedListener { controller, destination, arguments ->
-            changedLogicBottomNavigation(destination.id)
-            changedLogicStatusBar(destination.id)
+            changedListenerBottomNavigation(destination.id)
+            changedListenerStatusBar(destination.id)
         }
     }
 
-    private fun changedLogicBottomNavigation(id: Int) {
+    private fun changedListenerBottomNavigation(id: Int) {
         when (id) {
             R.id.signInFragment,
             R.id.signUpFragment,
@@ -58,7 +55,7 @@ class MainActivity : AppCompatActivity() {
         }
     }
 
-    private fun changedLogicStatusBar(id: Int) {
+    private fun changedListenerStatusBar(id: Int) {
         when (id) {
             R.id.navigation_home,
             R.id.navigation_profile -> {
