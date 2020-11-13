@@ -7,4 +7,8 @@ class Preferences(context: Context) {
 
     private val preferences: SharedPreferences =
         context.getSharedPreferences("lotcion.preferences", Context.MODE_PRIVATE)
+
+    fun remove(key: String) {
+        preferences.edit().remove(key).apply()
+    }
 }
