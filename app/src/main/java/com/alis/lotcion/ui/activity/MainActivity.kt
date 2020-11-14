@@ -33,30 +33,19 @@ class MainActivity : AppCompatActivity() {
 
     private fun addNavControllerDestinationChangedListener() {
         navController.addOnDestinationChangedListener { controller, destination, arguments ->
-            changedListenerBottomNavigation(destination.id)
-            changedListenerStatusBar(destination.id)
-            changedListenerCurrentFocus(destination.id)
+            changedCurrentFocus(destination.id)
+            changedStatusBar(destination.id)
+            changedBottomNavigation(destination.id)
         }
     }
 
-    private fun changedListenerBottomNavigation(id: Int) {
+    private fun changedCurrentFocus(id: Int) {
         when (id) {
-            R.id.signInFragment,
-            R.id.signUpFragment,
-            R.id.verifyCodeFragment,
-            R.id.lotFragment,
-            R.id.editProfileFragment,
-            R.id.settingsFragment -> {
-                bottom_nav.gone()
-            }
-            R.id.navigation_home,
-            R.id.navigation_add_lot -> {
-                bottom_nav.visible()
-            }
+            R.id.navigation_home -> currentFocus?.clearFocus()
         }
     }
 
-    private fun changedListenerStatusBar(id: Int) {
+    private fun changedStatusBar(id: Int) {
         when (id) {
             R.id.navigation_home,
             R.id.navigation_profile -> {
@@ -71,9 +60,20 @@ class MainActivity : AppCompatActivity() {
         }
     }
 
-    private fun changedListenerCurrentFocus(id: Int) {
+    private fun changedBottomNavigation(id: Int) {
         when (id) {
-            R.id.navigation_home -> currentFocus?.clearFocus()
+            R.id.signInFragment,
+            R.id.signUpFragment,
+            R.id.verifyCodeFragment,
+            R.id.lotFragment,
+            R.id.editProfileFragment,
+            R.id.settingsFragment -> {
+                bottom_nav.gone()
+            }
+            R.id.navigation_home,
+            R.id.navigation_add_lot -> {
+                bottom_nav.visible()
+            }
         }
     }
 
