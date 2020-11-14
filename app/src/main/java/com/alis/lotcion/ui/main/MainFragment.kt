@@ -68,9 +68,6 @@ class MainFragment : BaseFragment<MainViewModel>(R.layout.fragment_main) {
 
     private fun changedBottomNavigation(id: Int) {
         when (id) {
-            R.id.signInFragment,
-            R.id.signUpFragment,
-            R.id.verifyCodeFragment,
             R.id.lotFragment,
             R.id.editProfileFragment,
             R.id.settingsFragment -> {
