@@ -48,13 +48,13 @@ class ProfileFragment : BaseFragment<ProfileViewModel>(R.layout.fragment_profile
 
     private fun clickEdit() {
         button_profile_edit.setOnClickListener {
-            findNavController().navigate(R.id.action_navigation_profile_to_editProfileFragment)
+            findNavController().navigate(R.id.action_profileFragment_to_editProfileFragment)
         }
     }
 
     private fun clickSettings() {
         button_profile_settings.setOnClickListener {
-            findNavController().navigate(R.id.action_navigation_profile_to_settingsFragment)
+            findNavController().navigate(R.id.action_profileFragment_to_settingsFragment)
         }
     }
 
@@ -63,7 +63,7 @@ class ProfileFragment : BaseFragment<ProfileViewModel>(R.layout.fragment_profile
             override fun onLotItemClick(item: Lot) {
                 LotFragment.start(
                     this@ProfileFragment,
-                    R.id.action_navigation_profile_to_lotFragment,
+                    R.id.action_profileFragment_to_lot_graph,
                     item
                 )
             }

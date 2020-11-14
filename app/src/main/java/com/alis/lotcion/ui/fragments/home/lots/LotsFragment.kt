@@ -32,7 +32,7 @@ class LotsFragment : BaseFragment<LotsViewModel>(R.layout.fragment_lots) {
             override fun onLotItemClick(item: Lot) {
                 LotFragment.start(
                     this@LotsFragment,
-                    R.id.action_navigation_home_to_lotFragment,
+                    R.id.action_homeFragment_to_lot_graph,
                     item
                 )
             }

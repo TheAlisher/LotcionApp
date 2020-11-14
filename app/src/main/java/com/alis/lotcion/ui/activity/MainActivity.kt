@@ -27,54 +27,6 @@ class MainActivity : AppCompatActivity() {
         val navHostFragment =
             supportFragmentManager.findFragmentById(R.id.nav_host_fragment) as NavHostFragment
         navController = navHostFragment.navController
-        bottom_nav.setupWithNavController(navController)
-        addNavControllerDestinationChangedListener()
-    }
-
-    private fun addNavControllerDestinationChangedListener() {
-        navController.addOnDestinationChangedListener { controller, destination, arguments ->
-            changedCurrentFocus(destination.id)
-            changedStatusBar(destination.id)
-            changedBottomNavigation(destination.id)
-        }
-    }
-
-    private fun changedCurrentFocus(id: Int) {
-        when (id) {
-            R.id.navigation_home -> currentFocus?.clearFocus()
-        }
-    }
-
-    private fun changedStatusBar(id: Int) {
-        when (id) {
-            R.id.navigation_home,
-            R.id.navigation_profile -> {
-                window.clearFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN)
-            }
-            R.id.lotFragment -> {
-                window.setFlags(
-                    WindowManager.LayoutParams.FLAG_FULLSCREEN,
-                    WindowManager.LayoutParams.FLAG_FULLSCREEN
-                )
-            }
-        }
-    }
-
-    private fun changedBottomNavigation(id: Int) {
-        when (id) {
-            R.id.signInFragment,
-            R.id.signUpFragment,
-            R.id.verifyCodeFragment,
-            R.id.lotFragment,
-            R.id.editProfileFragment,
-            R.id.settingsFragment -> {
-                bottom_nav.gone()
-            }
-            R.id.navigation_home,
-            R.id.navigation_add_lot -> {
-                bottom_nav.visible()
-            }
-        }
     }
 
     private fun isAuthentication() {

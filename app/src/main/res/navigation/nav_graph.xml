@@ -3,7 +3,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/nav_graph"
-    app:startDestination="@id/navigation_home">
+    app:startDestination="@id/mainFragment">
 
     <action
         android:id="@+id/action_global_signInFragment"
@@ -12,10 +12,16 @@
         app:popUpToInclusive="true" />
 
     <action
-        android:id="@+id/action_global_navigation_home"
-        app:destination="@id/navigation_home"
+        android:id="@+id/action_global_mainFragment"
+        app:destination="@id/mainFragment"
         app:popUpTo="@id/nav_graph"
         app:popUpToInclusive="true" />
+
+    <fragment
+        android:id="@+id/mainFragment"
+        android:name="com.alis.lotcion.ui.main.MainFragment"
+        android:label="fragment_main"
+        tools:layout="@layout/fragment_main" />
 
     <fragment
         android:id="@+id/signInFragment"
@@ -42,56 +48,6 @@
         android:name="com.alis.lotcion.ui.authentication.verifycode.VerifyCodeFragment"
         android:label="fragment_verify_code"
         tools:layout="@layout/fragment_verify_code" />
-
-    <fragment
-        android:id="@+id/navigation_home"
-        android:name="com.alis.lotcion.ui.fragments.home.HomeFragment"
-        android:label="@string/navigation_home"
-        tools:layout="@layout/fragment_home">
-        <action
-            android:id="@+id/action_navigation_home_to_lotFragment"
-            app:destination="@id/lotFragment" />
-    </fragment>
-
-    <fragment
-        android:id="@+id/navigation_add_lot"
-        android:name="com.alis.lotcion.ui.fragments.addlot.AddLotFragment"
-        android:label="@string/navigation_add_lot"
-        tools:layout="@layout/fragment_add_lot" />
-
-    <fragment
-        android:id="@+id/navigation_profile"
-        android:name="com.alis.lotcion.ui.fragments.profile.ProfileFragment"
-        android:label="@string/navigation_profile"
-        tools:layout="@layout/fragment_profile">
-        <action
-            android:id="@+id/action_navigation_profile_to_editProfileFragment"
-            app:destination="@id/editProfileFragment" />
-        <action
-            android:id="@+id/action_navigation_profile_to_settingsFragment"
-            app:destination="@id/settingsFragment" />
-        <action
-            android:id="@+id/action_navigation_profile_to_lotFragment"
-            app:destination="@id/lotFragment" />
-    </fragment>
-
-    <fragment
-        android:id="@+id/editProfileFragment"
-        android:name="com.alis.lotcion.ui.fragments.profile.editprofile.EditProfileFragment"
-        android:label="fragment_edit_profile"
-        tools:layout="@layout/fragment_edit_profile" />
-
-    <fragment
-        android:id="@+id/settingsFragment"
-        android:name="com.alis.lotcion.ui.settings.SettingsFragment"
-        android:label="fragment_settings"
-        tools:layout="@layout/fragment_settings" />
-
-    <fragment
-        android:id="@+id/lotFragment"
-        android:name="com.alis.lotcion.ui.lot.LotFragment"
-        android:label="fragment_lot"
-        tools:layout="@layout/fragment_lot" />
 
 
 </navigation>

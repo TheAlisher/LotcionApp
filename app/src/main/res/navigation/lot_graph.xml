@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/lot_graph"
+    app:startDestination="@id/lotFragment">
+
+    <fragment
+        android:id="@+id/lotFragment"
+        android:name="com.alis.lotcion.ui.lot.LotFragment"
+        android:label="fragment_lot"
+        tools:layout="@layout/fragment_lot" />
+
+
+</navigation>

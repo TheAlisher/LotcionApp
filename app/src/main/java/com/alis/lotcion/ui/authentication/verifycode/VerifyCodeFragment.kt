@@ -89,7 +89,7 @@ class VerifyCodeFragment : BaseFragment<VerifyCodeViewModel>(R.layout.fragment_v
                     Log.d("PhoneAuth", "signInWithCredential:success")
                     showToastShort(requireContext(), R.string.toast_you_are_successfully_signed)
 
-                    findNavController().navigate(R.id.action_global_navigation_home)
+                    findNavController().navigate(R.id.action_global_mainFragment)
 
                 } else {
                     Log.w("PhoneAuth", "signInWithCredential:failure", task.exception)
