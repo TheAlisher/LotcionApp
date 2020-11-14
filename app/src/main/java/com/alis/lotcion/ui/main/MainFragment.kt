@@ -38,23 +38,25 @@ class MainFragment : BaseFragment<MainViewModel>(R.layout.fragment_main) {
     }
 
     private fun addNavControllerDestinationChangedListener() {
-        currentNavController?.value?.addOnDestinationChangedListener { controller, destination, arguments ->
-            changedCurrentFocus(destination.id)
-            changedStatusBar(destination.id)
-            changedBottomNavigation(destination.id)
-        }
+        currentNavController?.observe(this, {
+            currentNavController?.value?.addOnDestinationChangedListener { controller, destination, arguments ->
+                changedCurrentFocus(destination.id)
+                changedStatusBar(destination.id)
+                changedBottomNavigation(destination.id)
+            }
+        })
     }
 
     private fun changedCurrentFocus(id: Int) {
         when (id) {
-            R.id.navigation_home_graph -> requireActivity().currentFocus?.clearFocus()
+            R.id.homeFragment -> requireActivity().currentFocus?.clearFocus()
         }
     }
 
     private fun changedStatusBar(id: Int) {
         when (id) {
-            R.id.navigation_home_graph,
-            R.id.navigation_profile_graph -> {
+            R.id.homeFragment,
+            R.id.profileFragment -> {
                 requireActivity().window.clearFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN)
             }
             R.id.lotFragment -> {
@@ -73,8 +75,8 @@ class MainFragment : BaseFragment<MainViewModel>(R.layout.fragment_main) {
             R.id.settingsFragment -> {
                 bottom_nav.gone()
             }
-            R.id.navigation_home_graph,
-            R.id.navigation_add_lot_graph -> {
+            R.id.homeFragment,
+            R.id.profileFragment -> {
                 bottom_nav.visible()
             }
         }
