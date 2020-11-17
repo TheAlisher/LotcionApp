@@ -1,7 +1,7 @@
 package com.alis.lotcion.models
 
 data class Lot(
-    var id: String? = null,
+    var id: String,
     var image: Int? = null,
     var name: String? = null,
     var description: String? = null,
