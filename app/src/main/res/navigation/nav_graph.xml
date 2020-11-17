@@ -18,12 +18,6 @@
         app:popUpToInclusive="true" />
 
     <fragment
-        android:id="@+id/mainFragment"
-        android:name="com.alis.lotcion.ui.main.MainFragment"
-        android:label="fragment_main"
-        tools:layout="@layout/fragment_main" />
-
-    <fragment
         android:id="@+id/signInFragment"
         android:name="com.alis.lotcion.ui.authentication.signin.SignInFragment"
         android:label="fragment_sign_in"
@@ -48,6 +42,12 @@
         android:name="com.alis.lotcion.ui.authentication.verifycode.VerifyCodeFragment"
         android:label="fragment_verify_code"
         tools:layout="@layout/fragment_verify_code" />
+
+    <fragment
+        android:id="@+id/mainFragment"
+        android:name="com.alis.lotcion.ui.main.MainFragment"
+        android:label="fragment_main"
+        tools:layout="@layout/fragment_main" />
 
 
 </navigation>

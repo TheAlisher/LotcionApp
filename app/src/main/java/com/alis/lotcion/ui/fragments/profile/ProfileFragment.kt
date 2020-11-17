@@ -60,11 +60,9 @@ class ProfileFragment : BaseFragment<ProfileViewModel>(R.layout.fragment_profile
 
     private fun clickLotItem() {
         lotsAdapter.setOnItemClickListener(object : LotsAdapter.OnItemClickListener {
-            override fun onLotItemClick(item: Lot) {
-                LotFragment.start(
-                    this@ProfileFragment,
-                    R.id.action_profileFragment_to_lot_graph,
-                    item
+            override fun onLotItemClick(lotID: String) {
+                findNavController().navigate(
+                    ProfileFragmentDirections.actionProfileFragmentToLotGraph(lotID)
                 )
             }
         })

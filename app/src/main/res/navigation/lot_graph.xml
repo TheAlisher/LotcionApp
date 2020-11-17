@@ -9,7 +9,12 @@
         android:id="@+id/lotFragment"
         android:name="com.alis.lotcion.ui.lot.LotFragment"
         android:label="fragment_lot"
-        tools:layout="@layout/fragment_lot" />
+        tools:layout="@layout/fragment_lot" >
+        <argument
+            android:name="lotID"
+            android:defaultValue="lot 0"
+            app:argType="string" />
+    </fragment>
 
 
 </navigation>

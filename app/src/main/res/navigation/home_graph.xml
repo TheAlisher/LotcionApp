@@ -12,7 +12,12 @@
         tools:layout="@layout/fragment_home">
         <action
             android:id="@+id/action_homeFragment_to_lot_graph"
-            app:destination="@id/lot_graph" />
+            app:destination="@id/lot_graph">
+            <argument
+                android:name="lotID"
+                android:defaultValue="lot 0"
+                app:argType="string" />
+        </action>
     </fragment>
 
     <include app:graph="@navigation/lot_graph" />

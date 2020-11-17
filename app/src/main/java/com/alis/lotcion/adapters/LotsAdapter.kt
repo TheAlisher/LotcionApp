@@ -24,7 +24,7 @@ class LotsAdapter : RecyclerView.Adapter<LotsAdapter.LotsViewHolder>() {
         holder.onBind(list[position])
 
         holder.itemView.setOnClickListener {
-            listener.onLotItemClick(list[position])
+            listener.onLotItemClick(list[position].id)
         }
     }
 
@@ -59,7 +59,7 @@ class LotsAdapter : RecyclerView.Adapter<LotsAdapter.LotsViewHolder>() {
     }
 
     interface OnItemClickListener {
-        fun onLotItemClick(item: Lot)
+        fun onLotItemClick(lotID: String)
     }
 
     fun setOnItemClickListener(onItemClickListener: OnItemClickListener) {

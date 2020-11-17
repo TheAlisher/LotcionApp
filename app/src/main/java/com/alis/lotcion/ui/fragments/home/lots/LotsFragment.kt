@@ -1,12 +1,12 @@
 package com.alis.lotcion.ui.fragments.home.lots
 
+import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.alis.lotcion.R
 import com.alis.lotcion.adapters.LotsAdapter
 import com.alis.lotcion.base.BaseFragment
-import com.alis.lotcion.models.Lot
 import com.alis.lotcion.models.getMockData
-import com.alis.lotcion.ui.lot.LotFragment
+import com.alis.lotcion.ui.fragments.home.HomeFragmentDirections
 import kotlinx.android.synthetic.main.fragment_lots.*
 import org.koin.android.ext.android.inject
 
@@ -29,11 +29,9 @@ class LotsFragment : BaseFragment<LotsViewModel>(R.layout.fragment_lots) {
 
     override fun setupListeners() {
         lotsAdapter.setOnItemClickListener(object : LotsAdapter.OnItemClickListener {
-            override fun onLotItemClick(item: Lot) {
-                LotFragment.start(
-                    this@LotsFragment,
-                    R.id.action_homeFragment_to_lot_graph,
-                    item
+            override fun onLotItemClick(lotID: String) {
+                findNavController().navigate(
+                    HomeFragmentDirections.actionHomeFragmentToLotGraph(lotID)
                 )
             }
         })

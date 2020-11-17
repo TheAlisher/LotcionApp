@@ -18,7 +18,12 @@
             app:destination="@id/settingsFragment" />
         <action
             android:id="@+id/action_profileFragment_to_lot_graph"
-            app:destination="@id/lot_graph" />
+            app:destination="@id/lot_graph">
+            <argument
+                android:name="lotID"
+                android:defaultValue="lot 0"
+                app:argType="string" />
+        </action>
     </fragment>
 
     <fragment
