@@ -24,7 +24,7 @@ class LotsAdapter : RecyclerView.Adapter<LotsAdapter.LotsViewHolder>() {
         holder.onBind(list[position])
 
         holder.itemView.setOnClickListener {
-            listener.onLotItemClick(list[position].id)
+            listener.onLotItemClick(list[position].id!!)
         }
     }
 
