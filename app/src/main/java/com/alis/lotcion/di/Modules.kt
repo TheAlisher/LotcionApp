@@ -26,7 +26,7 @@ var lotcionModule = module {
     viewModel { SignUpViewModel() }
     viewModel { VerifyCodeViewModel() }
     viewModel { HomeViewModel() }
-    viewModel { AddLotViewModel() }
+    viewModel { AddLotViewModel(get()) }
     viewModel { ProfileViewModel() }
     viewModel { LotsViewModel() }
     viewModel { EditProfileViewModel() }
