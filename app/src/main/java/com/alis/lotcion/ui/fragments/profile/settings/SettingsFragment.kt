@@ -1,7 +1,6 @@
-package com.alis.lotcion.ui.settings
+package com.alis.lotcion.ui.fragments.profile.settings
 
 import androidx.navigation.Navigation
-import androidx.navigation.fragment.findNavController
 import com.alis.lotcion.R
 import com.alis.lotcion.base.BaseFragment
 import com.google.firebase.auth.ktx.auth

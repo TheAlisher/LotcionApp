@@ -16,14 +16,6 @@
         <action
             android:id="@+id/action_profileFragment_to_settingsFragment"
             app:destination="@id/settingsFragment" />
-        <action
-            android:id="@+id/action_profileFragment_to_lot_graph"
-            app:destination="@id/lot_graph">
-            <argument
-                android:name="lotID"
-                android:defaultValue="lot 0"
-                app:argType="string" />
-        </action>
     </fragment>
 
     <fragment
@@ -34,11 +26,9 @@
 
     <fragment
         android:id="@+id/settingsFragment"
-        android:name="com.alis.lotcion.ui.settings.SettingsFragment"
+        android:name="com.alis.lotcion.ui.fragments.profile.settings.SettingsFragment"
         android:label="fragment_settings"
         tools:layout="@layout/fragment_settings" />
-
-    <include app:graph="@navigation/lot_graph" />
 
 
 </navigation>
