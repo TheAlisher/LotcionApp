@@ -1,8 +1,9 @@
 package com.alis.lotcion.ui.fragments.home.lots
 
 import com.alis.lotcion.base.BaseViewModel
+import com.alis.lotcion.data.repository.FirebaseRepository
 
-class LotsViewModel : BaseViewModel() {
+class LotsViewModel(private val repository: FirebaseRepository) : BaseViewModel() {
 
     fun fetchLots(position: Int) {
 
