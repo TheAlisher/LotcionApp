@@ -25,7 +25,7 @@
             android:elevation="10dp"
             app:defaultQueryHint="@string/hint_search"
             app:iconifiedByDefault="false"
-            app:layout_scrollFlags="scroll|enterAlways"
+            app:layout_scrollFlags="scroll|enterAlways|snap"
             app:queryBackground="@color/White" />
 
         <com.google.android.material.tabs.TabLayout
