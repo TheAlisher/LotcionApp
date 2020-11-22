@@ -31,7 +31,14 @@ class HomeFragment : BaseFragment<HomeViewModel>(R.layout.fragment_home) {
     }
 
     override fun setupListeners() {
+        clickSelectCategory()
         addOnTabSelectedListener()
+    }
+
+    private fun clickSelectCategory() {
+        button_home_select_category.setOnClickListener {
+
+        }
     }
 
     private fun addOnTabSelectedListener() {

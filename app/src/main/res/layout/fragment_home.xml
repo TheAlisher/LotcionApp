@@ -13,20 +13,48 @@
         android:layout_height="wrap_content"
         android:background="@color/White">
 
-        <androidx.appcompat.widget.SearchView
-            android:id="@+id/searchView_home"
+        <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginStart="20dp"
-            android:layout_marginTop="20dp"
-            android:layout_marginEnd="20dp"
-            android:layout_marginBottom="10dp"
-            android:background="@color/White"
-            android:elevation="10dp"
-            app:defaultQueryHint="@string/hint_search"
-            app:iconifiedByDefault="false"
-            app:layout_scrollFlags="scroll|enterAlways|snap"
-            app:queryBackground="@color/White" />
+            android:paddingTop="10dp"
+            android:paddingBottom="10dp"
+            app:layout_scrollFlags="scroll|enterAlways|snap">
+
+            <androidx.appcompat.widget.SearchView
+                android:id="@+id/searchView_home"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_marginStart="20dp"
+                android:background="@color/White"
+                android:elevation="5dp"
+                app:defaultQueryHint="@string/hint_search"
+                app:iconifiedByDefault="false"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintRight_toLeftOf="@+id/button_home_select_category"
+                app:layout_constraintTop_toTopOf="parent"
+                app:queryBackground="@color/White" />
+
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/button_home_select_category"
+                style="@style/Widget.MaterialComponents.Button.OutlinedButton"
+                android:layout_width="45dp"
+                android:layout_height="match_parent"
+                android:layout_marginStart="5dp"
+                android:layout_marginEnd="20dp"
+                app:cornerRadius="100dp"
+                app:icon="@drawable/icon_scatter_plot_36"
+                app:iconGravity="textEnd"
+                app:iconTint="@color/Black"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintLeft_toRightOf="@+id/searchView_home"
+                app:layout_constraintRight_toRightOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:rippleColor="@color/Gray"
+                app:strokeWidth="0dp" />
+
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
 
         <com.google.android.material.tabs.TabLayout
             android:id="@+id/tabLayout_home"
