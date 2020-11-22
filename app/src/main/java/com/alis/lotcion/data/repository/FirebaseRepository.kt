@@ -1,16 +1,31 @@
 package com.alis.lotcion.data.repository
 
 import android.util.Log
+import androidx.lifecycle.MutableLiveData
+import androidx.lifecycle.liveData
+import com.alis.lotcion.data.network.Resource
 import com.alis.lotcion.models.Bidder
 import com.alis.lotcion.models.Lot
 import com.google.firebase.firestore.FieldValue
 import com.google.firebase.firestore.FirebaseFirestore
+import kotlinx.coroutines.Dispatchers
+import java.lang.Exception
+
+private const val LOT_CATEGORY_ART = "Исскуство"
+private const val LOT_CATEGORY_BOOK = "Книги"
+private const val LOT_CATEGORY_HANDIWORK = "Рукоделие"
+private const val LOT_CATEGORY_PROPERTY = "Недвижимость"
+private const val LOT_CATEGORY_TRANSPORT = "Транспорт"
+private const val LOT_CATEGORY_ACCESSORY = "Аксессуары"
+private const val LOT_CATEGORY_ELECTRONICS = "Электроника"
+private const val LOT_CATEGORY_ANIMAL = "Животные"
 
 class FirebaseRepository(private val db: FirebaseFirestore) {
 
     private val lotRef = db.collection("lots")
 
-    suspend fun fetchFavoriteLots() {
+    //TODO: CHANGE THIS LOGIC
+    fun fetchFavoriteLots() {
         lotRef
             .whereEqualTo("liked", true)
             .get()
@@ -23,131 +38,82 @@ class FirebaseRepository(private val db: FirebaseFirestore) {
                 Log.w("FetchFavoriteLots", "Error getting documents: ", it)
             }
     }
+    //TODO: CHANGE THIS LOGIC
 
-    suspend fun fetchAllLots() {
+    fun fetchAllLots(): MutableLiveData<MutableList<Lot>> {
+        val data = MutableLiveData<MutableList<Lot>>()
         lotRef
             .get()
             .addOnSuccessListener {
                 for (document in it) {
                     Log.d("FetchAllLots", "${document.id} => ${document.data}")
                 }
+
+                data.value = it.toObjects(Lot::class.java)
             }
             .addOnFailureListener {
                 Log.w("FetchAllLots", "Error getting document", it)
+
+                data.value = null
             }
+        return data
     }
 
-    suspend fun fetchArtLots() {
+    //region FetchLotsByCategory
+
+    private fun fetchLotsByCategory(category: String): MutableLiveData<MutableList<Lot>> {
+        val data = MutableLiveData<MutableList<Lot>>()
         lotRef
-            .whereEqualTo("category", "Исскуство")
+            .whereEqualTo("category", category)
             .get()
             .addOnSuccessListener {
                 for (document in it) {
-                    Log.d("FetchArtLots", "${document.id} => ${document.data}")
+                    Log.d("FetchLotsByCategory", "${document.id} => ${document.data}")
                 }
+
+                data.value = it.toObjects(Lot::class.java)
             }
             .addOnFailureListener {
-                Log.w("FetchArtLots", "Error getting document", it)
+                Log.w("FetchLotsByCategory", "Error getting document", it)
+
+                data.value = null
             }
+        return data
     }
 
-    suspend fun fetchBookLots() {
-        lotRef
-            .whereEqualTo("category", "Книги")
-            .get()
-            .addOnSuccessListener {
-                for (document in it) {
-                    Log.d("FetchBookLots", "${document.id} => ${document.data}")
-                }
-            }
-            .addOnFailureListener {
-                Log.w("FetchBookLots", "Error getting document", it)
-            }
+    fun fetchArtLots(): MutableLiveData<MutableList<Lot>> {
+        return fetchLotsByCategory(LOT_CATEGORY_ART)
     }
 
-    suspend fun fetchHandiworkLots() {
-        lotRef
-            .whereEqualTo("category", "Рукоделие")
-            .get()
-            .addOnSuccessListener {
-                for (document in it) {
-                    Log.d("FetchHandiworkLots", "${document.id} => ${document.data}")
-                }
-            }
-            .addOnFailureListener {
-                Log.w("FetchHandiworkLots", "Error getting document", it)
-            }
+    fun fetchBookLots(): MutableLiveData<MutableList<Lot>> {
+        return fetchLotsByCategory(LOT_CATEGORY_BOOK)
     }
 
-    suspend fun fetchPropertyLots() {
-        lotRef
-            .whereEqualTo("category", "Недвижимость")
-            .get()
-            .addOnSuccessListener {
-                for (document in it) {
-                    Log.d("FetchPropertyLots", "${document.id} => ${document.data}")
-                }
-            }
-            .addOnFailureListener {
-                Log.w("FetchPropertyLots", "Error getting document", it)
-            }
+    fun fetchHandiworkLots(): MutableLiveData<MutableList<Lot>> {
+        return fetchLotsByCategory(LOT_CATEGORY_HANDIWORK)
     }
 
-    suspend fun fetchTransportLots() {
-        lotRef
-            .whereEqualTo("category", "Транспорт")
-            .get()
-            .addOnSuccessListener {
-                for (document in it) {
-                    Log.d("FetchTransportLots", "${document.id} => ${document.data}")
-                }
-            }
-            .addOnFailureListener {
-                Log.w("FetchTransportLots", "Error getting document", it)
-            }
+    fun fetchPropertyLots(): MutableLiveData<MutableList<Lot>> {
+        return fetchLotsByCategory(LOT_CATEGORY_PROPERTY)
     }
 
-    suspend fun fetchAccessoryLots() {
-        lotRef
-            .whereEqualTo("category", "Аксессуары")
-            .get()
-            .addOnSuccessListener {
-                for (document in it) {
-                    Log.d("FetchAccessoryLots", "${document.id} => ${document.data}")
-                }
-            }
-            .addOnFailureListener {
-                Log.w("FetchAccessoryLots", "Error getting document", it)
-            }
+    fun fetchTransportLots(): MutableLiveData<MutableList<Lot>> {
+        return fetchLotsByCategory(LOT_CATEGORY_TRANSPORT)
     }
 
-    suspend fun fetchElectronicLots() {
-        lotRef
-            .whereEqualTo("category", "Электроника")
-            .get()
-            .addOnSuccessListener {
-                for (document in it) {
-                    Log.d("FetchElectronicLots", "${document.id} => ${document.data}")
-                }
-            }
-            .addOnFailureListener {
-                Log.w("FetchElectronicLots", "Error getting document", it)
-            }
+    fun fetchAccessoryLots(): MutableLiveData<MutableList<Lot>> {
+        return fetchLotsByCategory(LOT_CATEGORY_ACCESSORY)
     }
 
-    suspend fun fetchAnimalLots() {
-        lotRef
-            .whereEqualTo("category", "Животные")
-            .get()
-            .addOnSuccessListener {
-                for (document in it) {
-                    Log.d("FetchAnimalLots", "${document.id} => ${document.data}")
-                }
-            }
-            .addOnFailureListener {
-                Log.w("FetchAnimalLots", "Error getting document", it)
-            }
+    fun fetchElectronicsLots(): MutableLiveData<MutableList<Lot>> {
+        return fetchLotsByCategory(LOT_CATEGORY_ELECTRONICS)
     }
+
+    fun fetchAnimalLots(): MutableLiveData<MutableList<Lot>> {
+        return fetchLotsByCategory(LOT_CATEGORY_ANIMAL)
+    }
+
+    //endregion
 
     fun addLot(lot: Lot) {
         db.collection("number of lots")

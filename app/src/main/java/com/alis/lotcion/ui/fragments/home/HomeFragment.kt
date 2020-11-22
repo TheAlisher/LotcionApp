@@ -25,8 +25,7 @@ class HomeFragment : BaseFragment<HomeViewModel>(R.layout.fragment_home) {
     private fun createLotsPager() {
         pager_home.apply {
             adapter = HomePagerAdapter(childFragmentManager)
-            offscreenPageLimit = 9
-            currentItem = 1
+            offscreenPageLimit = 3
         }
         tabLayout_home.setupWithViewPager(pager_home)
     }
@@ -51,16 +50,10 @@ class HomeFragment : BaseFragment<HomeViewModel>(R.layout.fragment_home) {
         FragmentPagerAdapter(fragmentManager, BEHAVIOR_RESUME_ONLY_CURRENT_FRAGMENT) {
 
         private val fragmentTitle = mutableListOf(
+            "В данный момент",
+            "Предстоящие",
             "Избранные",
-            "Все",
-            "Исскуство",
-            "Книги",
-            "Рукоделие",
-            "Недвижимость",
-            "Транспорт",
-            "Аксессуары",
-            "Электроника",
-            "Животные"
+            "Мои аукционы",
         )
 
         override fun getCount(): Int = fragmentTitle.size

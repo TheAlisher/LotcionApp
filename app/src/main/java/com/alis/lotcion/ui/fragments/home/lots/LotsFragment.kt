@@ -5,7 +5,6 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import com.alis.lotcion.R
 import com.alis.lotcion.adapters.LotsAdapter
 import com.alis.lotcion.base.BaseFragment
-import com.alis.lotcion.models.getMockData
 import com.alis.lotcion.ui.fragments.home.HomeFragmentDirections
 import kotlinx.android.synthetic.main.fragment_lots.*
 import org.koin.android.ext.android.inject
@@ -39,15 +38,18 @@ class LotsFragment : BaseFragment<LotsViewModel>(R.layout.fragment_lots) {
 
     override fun observe() {
         fetchLots()
+
+        subscribeToData()
     }
 
     private fun fetchLots() {
-        lotsAdapter.clear()
-        val data = getMockData()
-        data.forEach {
-            lotsAdapter.add(it)
-        }
-        //TODO: viewModel.fetchLots(requireArguments().getInt(ARG_TAB_POSITION))
+        viewModel.fetchLots(requireArguments().getInt(ARG_TAB_POSITION))
+    }
+
+    private fun subscribeToData() {
+        viewModel.data.observe(viewLifecycleOwner, {
+            lotsAdapter.addAll(it)
+        })
     }
 
     companion object {
