@@ -1,14 +1,19 @@
 package com.alis.lotcion.ui.fragments.home
 
 import android.os.Bundle
+import android.view.animation.AccelerateInterpolator
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.FragmentManager
 import androidx.fragment.app.FragmentPagerAdapter
+import androidx.viewpager.widget.ViewPager
 import com.alis.lotcion.R
 import com.alis.lotcion.base.BaseFragment
+import com.alis.lotcion.extensions.gone
 import com.alis.lotcion.extensions.showToastShort
+import com.alis.lotcion.extensions.visible
 import com.alis.lotcion.ui.fragments.home.lots.LotsFragment
 import com.alis.lotcion.utils.SimpleTabSelectedListener
+import com.google.android.material.appbar.AppBarLayout
 import com.google.android.material.tabs.TabLayout
 import kotlinx.android.synthetic.main.fragment_home.*
 import kotlinx.android.synthetic.main.fragment_home.tabLayout_home
@@ -33,6 +38,7 @@ class HomeFragment : BaseFragment<HomeViewModel>(R.layout.fragment_home) {
     override fun setupListeners() {
         clickSelectCategory()
         addOnTabSelectedListener()
+        pagerChangeListener()
     }
 
     private fun clickSelectCategory() {
@@ -45,6 +51,22 @@ class HomeFragment : BaseFragment<HomeViewModel>(R.layout.fragment_home) {
         tabLayout_home.addOnTabSelectedListener(object : SimpleTabSelectedListener {
             override fun onTabReselected(tab: TabLayout.Tab?) {
                 showToastShort(requireContext(), "Reselected")
+            }
+        })
+    }
+
+    private fun pagerChangeListener() {
+        pager_home.addOnPageChangeListener(object : ViewPager.SimpleOnPageChangeListener() {
+            override fun onPageSelected(position: Int) {
+                super.onPageSelected(position)
+                when (position) {
+                    0 -> {
+                        appbar_home.setExpanded(true, true)
+                    }
+                    1, 2 -> {
+                        appbar_home.setExpanded(false, true)
+                    }
+                }
             }
         })
     }
