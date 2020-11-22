@@ -2,47 +2,27 @@ package com.alis.lotcion.data.repository
 
 import android.util.Log
 import androidx.lifecycle.MutableLiveData
-import androidx.lifecycle.liveData
-import com.alis.lotcion.data.network.Resource
+import com.alis.lotcion.Constants.LOT_CATEGORY_ACCESSORY
+import com.alis.lotcion.Constants.LOT_CATEGORY_ANIMAL
+import com.alis.lotcion.Constants.LOT_CATEGORY_ART
+import com.alis.lotcion.Constants.LOT_CATEGORY_BOOK
+import com.alis.lotcion.Constants.LOT_CATEGORY_ELECTRONICS
+import com.alis.lotcion.Constants.LOT_CATEGORY_HANDIWORK
+import com.alis.lotcion.Constants.LOT_CATEGORY_PROPERTY
+import com.alis.lotcion.Constants.LOT_CATEGORY_TRANSPORT
 import com.alis.lotcion.models.Bidder
 import com.alis.lotcion.models.Lot
 import com.google.firebase.firestore.FieldValue
 import com.google.firebase.firestore.FirebaseFirestore
-import kotlinx.coroutines.Dispatchers
-import java.lang.Exception
-
-private const val LOT_CATEGORY_ART = "Исскуство"
-private const val LOT_CATEGORY_BOOK = "Книги"
-private const val LOT_CATEGORY_HANDIWORK = "Рукоделие"
-private const val LOT_CATEGORY_PROPERTY = "Недвижимость"
-private const val LOT_CATEGORY_TRANSPORT = "Транспорт"
-private const val LOT_CATEGORY_ACCESSORY = "Аксессуары"
-private const val LOT_CATEGORY_ELECTRONICS = "Электроника"
-private const val LOT_CATEGORY_ANIMAL = "Животные"
 
 class FirebaseRepository(private val db: FirebaseFirestore) {
 
     private val lotRef = db.collection("lots")
 
-    //TODO: CHANGE THIS LOGIC
-    fun fetchFavoriteLots() {
-        lotRef
-            .whereEqualTo("liked", true)
-            .get()
-            .addOnSuccessListener {
-                for (document in it) {
-                    Log.d("FetchFavoriteLots", "${document.id} => ${document.data}")
-                }
-            }
-            .addOnFailureListener {
-                Log.w("FetchFavoriteLots", "Error getting documents: ", it)
-            }
-    }
-    //TODO: CHANGE THIS LOGIC
-
     fun fetchAllLots(): MutableLiveData<MutableList<Lot>> {
         val data = MutableLiveData<MutableList<Lot>>()
         lotRef
+            .whereGreaterThan("timeLeft", "00:00:00")
             .get()
             .addOnSuccessListener {
                 for (document in it) {
@@ -53,6 +33,30 @@ class FirebaseRepository(private val db: FirebaseFirestore) {
             }
             .addOnFailureListener {
                 Log.w("FetchAllLots", "Error getting document", it)
+
+                data.value = null
+            }
+        return data
+    }
+
+    fun fetchLotByID(lotID: String): MutableLiveData<Lot> {
+        val data = MutableLiveData<Lot>()
+        lotRef
+            .document(lotID)
+            .get()
+            .addOnSuccessListener {
+                if (it != null) {
+                    Log.d("FetchLot", "DocumentSnapshot data: ${it.data}")
+                } else {
+                    Log.d("FetchLot", "No such document")
+                }
+
+                if (it != null) {
+                    data.value = it.toObject(Lot::class.java)
+                }
+            }
+            .addOnFailureListener {
+                Log.d("FetchLot", "get failed with ", it)
 
                 data.value = null
             }
