@@ -30,5 +30,5 @@ var lotcionModule = module {
     viewModel { ProfileViewModel() }
     viewModel { LotsViewModel(get()) }
     viewModel { EditProfileViewModel() }
-    viewModel { LotViewModel() }
+    viewModel { LotViewModel(get()) }
 }
