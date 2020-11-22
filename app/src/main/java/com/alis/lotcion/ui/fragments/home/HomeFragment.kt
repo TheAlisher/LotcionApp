@@ -51,7 +51,6 @@ class HomeFragment : BaseFragment<HomeViewModel>(R.layout.fragment_home) {
 
         private val fragmentTitle = mutableListOf(
             "В данный момент",
-            "Предстоящие",
             "Избранные",
             "Мои аукционы",
         )

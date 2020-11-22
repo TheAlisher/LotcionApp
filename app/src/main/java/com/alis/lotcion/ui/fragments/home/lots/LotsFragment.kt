@@ -16,10 +16,10 @@ class LotsFragment : BaseFragment<LotsViewModel>(R.layout.fragment_lots) {
     private val lotsAdapter = LotsAdapter()
 
     override fun initialize() {
-        createLotsRecycler()
+        setupLotsRecycler()
     }
 
-    private fun createLotsRecycler() {
+    private fun setupLotsRecycler() {
         recycler_lots.apply {
             layoutManager = LinearLayoutManager(requireContext())
             adapter = lotsAdapter
@@ -48,7 +48,7 @@ class LotsFragment : BaseFragment<LotsViewModel>(R.layout.fragment_lots) {
 
     private fun subscribeToData() {
         viewModel.data.observe(viewLifecycleOwner, {
-            lotsAdapter.addAll(it)
+            lotsAdapter.setList(it)
         })
     }
 

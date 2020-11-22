@@ -30,12 +30,17 @@ class LotsAdapter : RecyclerView.Adapter<LotsAdapter.LotsViewHolder>() {
 
     override fun getItemCount(): Int = list.size
 
-    fun add(lot: Lot) {
+    fun setList(list : MutableList<Lot>) {
+        this.list = list
+        notifyDataSetChanged()
+    }
+
+    fun addItem(lot: Lot) {
         this.list.add(lot)
         notifyDataSetChanged()
     }
 
-    fun addAll(list: MutableList<Lot>) {
+    fun addAllItems(list: MutableList<Lot>) {
         this.list.addAll(list)
         notifyDataSetChanged()
     }
