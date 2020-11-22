@@ -20,7 +20,7 @@ class LotFragment : BaseFragment<LotViewModel>(R.layout.fragment_lot) {
 
     }
 
-    override fun observe() {
+    override fun setupObservers() {
         viewModel.fetchLotByID(args.lotID).observe(viewLifecycleOwner, {
             text_lot_id.text = it.id
         })

@@ -35,7 +35,7 @@ class ProfileFragment : BaseFragment<ProfileViewModel>(R.layout.fragment_profile
         }
     }
 
-    override fun observe() {
+    override fun setupObservers() {
 
     }
 }

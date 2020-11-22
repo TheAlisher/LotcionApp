@@ -86,7 +86,7 @@ class MainFragment : BaseFragment<MainViewModel>(R.layout.fragment_main) {
 
     }
 
-    override fun observe() {
+    override fun setupObservers() {
 
     }
 }

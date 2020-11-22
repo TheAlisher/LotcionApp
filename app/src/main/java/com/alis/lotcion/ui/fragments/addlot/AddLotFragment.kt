@@ -30,7 +30,7 @@ class AddLotFragment : BaseFragment<AddLotViewModel>(R.layout.fragment_add_lot) 
         }
     }
 
-    override fun observe() {
+    override fun setupObservers() {
 
     }
 }

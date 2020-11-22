@@ -47,7 +47,7 @@ class VerifyCodeFragment : BaseFragment<VerifyCodeViewModel>(R.layout.fragment_v
         }
     }
 
-    override fun observe() {
+    override fun setupObservers() {
 
     }
 

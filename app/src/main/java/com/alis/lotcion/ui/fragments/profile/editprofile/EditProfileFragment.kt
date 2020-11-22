@@ -16,7 +16,7 @@ class EditProfileFragment : BaseFragment<EditProfileViewModel>(R.layout.fragment
 
     }
 
-    override fun observe() {
+    override fun setupObservers() {
 
     }
 }

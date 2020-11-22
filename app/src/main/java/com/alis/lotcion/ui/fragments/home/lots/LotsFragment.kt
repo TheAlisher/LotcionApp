@@ -36,7 +36,7 @@ class LotsFragment : BaseFragment<LotsViewModel>(R.layout.fragment_lots) {
         })
     }
 
-    override fun observe() {
+    override fun setupObservers() {
         fetchLots()
 
         subscribeToData()

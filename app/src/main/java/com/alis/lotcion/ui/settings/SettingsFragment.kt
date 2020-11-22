@@ -25,7 +25,7 @@ class SettingsFragment : BaseFragment<SettingsViewModel>(R.layout.fragment_setti
         }
     }
 
-    override fun observe() {
+    override fun setupObservers() {
 
     }
 }

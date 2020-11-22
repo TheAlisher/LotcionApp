@@ -21,12 +21,12 @@ abstract class BaseFragment<ViewModel : BaseViewModel>(private val layoutID: Int
 
         initialize()
         setupListeners()
-        observe()
+        setupObservers()
     }
 
     abstract fun initialize()
 
     abstract fun setupListeners()
 
-    abstract fun observe()
+    abstract fun setupObservers()
 }

@@ -42,7 +42,7 @@ class HomeFragment : BaseFragment<HomeViewModel>(R.layout.fragment_home) {
         })
     }
 
-    override fun observe() {
+    override fun setupObservers() {
 
     }
 

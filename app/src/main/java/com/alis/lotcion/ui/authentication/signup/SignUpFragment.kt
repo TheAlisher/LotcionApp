@@ -31,7 +31,7 @@ class SignUpFragment : BaseFragment<SignUpViewModel>(R.layout.fragment_sign_up) 
         }
     }
 
-    override fun observe() {
+    override fun setupObservers() {
 
     }
 }
