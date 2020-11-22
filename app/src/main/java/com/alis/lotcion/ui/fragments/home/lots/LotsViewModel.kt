@@ -20,12 +20,6 @@ class LotsViewModel(private val repository: FirebaseRepository) : BaseViewModel(
             2 -> {
 
             }
-            3 -> {
-
-            }
-            4 -> {
-
-            }
         }
     }
 
