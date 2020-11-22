@@ -13,10 +13,7 @@ class LotFragment : BaseFragment<LotViewModel>(R.layout.fragment_lot) {
     private val args: LotFragmentArgs by navArgs()
 
     override fun initialize() {
-    }
 
-    private fun fetchLot() {
-        viewModel.fetchLotByID(args.lotID)
     }
 
     override fun setupListeners() {
