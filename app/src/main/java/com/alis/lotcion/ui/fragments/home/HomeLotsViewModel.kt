@@ -5,7 +5,7 @@ import com.alis.lotcion.base.BaseViewModel
 import com.alis.lotcion.data.repository.FirebaseRepository
 import com.alis.lotcion.models.Lot
 
-class HomeViewModel(private val repository: FirebaseRepository) : BaseViewModel() {
+class HomeLotsViewModel(private val repository: FirebaseRepository) : BaseViewModel() {
 
     var data = MutableLiveData<MutableList<Lot>>()
 

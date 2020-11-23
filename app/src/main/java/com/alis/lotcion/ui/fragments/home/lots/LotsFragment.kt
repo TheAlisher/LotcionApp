@@ -6,13 +6,13 @@ import com.alis.lotcion.R
 import com.alis.lotcion.adapters.LotsAdapter
 import com.alis.lotcion.base.BaseFragment
 import com.alis.lotcion.ui.fragments.home.HomeFragmentDirections
-import com.alis.lotcion.ui.fragments.home.HomeViewModel
+import com.alis.lotcion.ui.fragments.home.HomeLotsViewModel
 import kotlinx.android.synthetic.main.fragment_lots.*
 import org.koin.android.ext.android.inject
 
-class LotsFragment : BaseFragment<HomeViewModel>(R.layout.fragment_lots) {
+class LotsFragment : BaseFragment<HomeLotsViewModel>(R.layout.fragment_lots) {
 
-    override val viewModel by inject<HomeViewModel>()
+    override val viewModel by inject<HomeLotsViewModel>()
 
     private val lotsAdapter = LotsAdapter()
 

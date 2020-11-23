@@ -1,27 +1,23 @@
 package com.alis.lotcion.ui.fragments.home
 
 import android.os.Bundle
-import android.view.animation.AccelerateInterpolator
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.FragmentManager
 import androidx.fragment.app.FragmentPagerAdapter
 import androidx.viewpager.widget.ViewPager
 import com.alis.lotcion.R
 import com.alis.lotcion.base.BaseFragment
-import com.alis.lotcion.extensions.gone
 import com.alis.lotcion.extensions.showToastShort
-import com.alis.lotcion.extensions.visible
 import com.alis.lotcion.ui.fragments.home.lots.LotsFragment
 import com.alis.lotcion.utils.SimpleTabSelectedListener
-import com.google.android.material.appbar.AppBarLayout
 import com.google.android.material.tabs.TabLayout
 import kotlinx.android.synthetic.main.fragment_home.*
 import kotlinx.android.synthetic.main.fragment_home.tabLayout_home
 import org.koin.android.ext.android.inject
 
-class HomeFragment : BaseFragment<HomeViewModel>(R.layout.fragment_home) {
+class HomeFragment : BaseFragment<HomeLotsViewModel>(R.layout.fragment_home) {
 
-    override val viewModel by inject<HomeViewModel>()
+    override val viewModel by inject<HomeLotsViewModel>()
 
     override fun initialize() {
         createLotsPager()

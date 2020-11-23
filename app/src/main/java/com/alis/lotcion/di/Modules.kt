@@ -7,7 +7,7 @@ import com.alis.lotcion.ui.authentication.signin.SignInViewModel
 import com.alis.lotcion.ui.authentication.signup.SignUpViewModel
 import com.alis.lotcion.ui.authentication.verifycode.VerifyCodeViewModel
 import com.alis.lotcion.ui.fragments.addlot.AddLotViewModel
-import com.alis.lotcion.ui.fragments.home.HomeViewModel
+import com.alis.lotcion.ui.fragments.home.HomeLotsViewModel
 import com.alis.lotcion.ui.fragments.profile.ProfileViewModel
 import com.alis.lotcion.ui.fragments.profile.editprofile.EditProfileViewModel
 import com.alis.lotcion.ui.lot.LotViewModel
@@ -24,7 +24,7 @@ var lotcionModule = module {
     viewModel { SignInViewModel() }
     viewModel { SignUpViewModel() }
     viewModel { VerifyCodeViewModel() }
-    viewModel { HomeViewModel(get()) }
+    viewModel { HomeLotsViewModel(get()) }
     viewModel { AddLotViewModel(get()) }
     viewModel { ProfileViewModel() }
     viewModel { EditProfileViewModel() }
